@@ -4,20 +4,23 @@ Building my skills and working out what kind of (live code) musician I am.
 
 One track per month.
 
+---
+
 |Month| Theme|
 | --- | --- |
 |January|?|
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?
+
 Ethereal Break(House)
+
 Sample myself playing the horn
+
 Play around more with randomness
 explore using custom functions
 
 **Possible Constraints:**
-
-Certainly! Adding a variety of constraints can really spur creativity and challenge your skills in new ways. Here are additional constraint ideas for your Tidal Cycles project:
 
 1. Single Sound Source: Create an entire track using variations of a single sound or sample.
 
@@ -25,7 +28,7 @@ Certainly! Adding a variety of constraints can really spur creativity and challe
 
 3. Monophonic Composition: Use only one note at a time throughout the track, avoiding chords and harmonies.
 
-4. Reverse Sounds: Utilize backward sounds or melodies to create a unique texture.
+4. Reverse Sounds: Utilise backward sounds or melodies to create a unique texture.
 
 5. No Percussion: Build a track without any traditional percussive elements, focusing on melody and harmony.
 
@@ -43,7 +46,7 @@ Certainly! Adding a variety of constraints can really spur creativity and challe
 
 12. Algorithmic Rules: Set up specific rules or algorithms for your composition process, like a set order for introducing and removing elements.
 
-13. **Remix Challenge: Take one of your older tracks and remix it under a new constraint.
+13. Remix Challenge: Take one of your older tracks and remix it under a new constraint.
 
 14. Spatial Constraints: Experiment with the stereo field, perhaps confining sounds to only left, right, or center channels.
 
