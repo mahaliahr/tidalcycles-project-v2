@@ -20,6 +20,10 @@ Sample myself playing the horn
 Play around more with randomness
 explore using custom functions
 
+**New Random Ideas**
+
+Trffic Jam sounds 
+
 **Possible Constraints:**
 
 1. Single Sound Source: Create an entire track using variations of a single sound or sample.
