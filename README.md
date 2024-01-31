@@ -1,14 +1,19 @@
 # tidalcycles-project-v2
 
-Building my skills and working out what kind of (live code) musician I am.
+Building my skills and working out what kind of (live code / algorithmically-based) musician I am.
 
-One track per month.
+One 'track' per month.
+
+
+
+(the 'tracks' may be chaotic)
 
 ---
 
 |Month| Theme|
 | --- | --- |
-|January|?|
+|January|Remixing a 2020 track because I ran out of time...|<https://youtu.be/hOqeGyfNjQo>|
+|February|?|
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?
@@ -22,7 +27,7 @@ explore using custom functions
 
 **New Random Ideas**
 
-Trffic Jam sounds 
+Traffic Jam sounds
 
 **Possible Constraints:**
 
@@ -52,6 +57,6 @@ Trffic Jam sounds
 
 13. Remix Challenge: Take one of your older tracks and remix it under a new constraint.
 
-14. Spatial Constraints: Experiment with the stereo field, perhaps confining sounds to only left, right, or center channels.
+14. Spatial Constraints: Experiment with the stereo field, perhaps confining sounds to only left, right, or centre channels.
 
 15. Texture Focus: Focus on creating a track with a specific texture, like smooth, gritty, or granular sounds.
