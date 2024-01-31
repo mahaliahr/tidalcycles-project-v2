@@ -11,9 +11,9 @@ One 'track' per month.
 ---
 
 |Month| Theme|
-| --- | --- |
-|January|Remixing a 2020 track because I ran out of time...|<https://youtu.be/hOqeGyfNjQo>|
-|February|?|
+| --- | --- | --- |
+|January|Remixing a 2020 track because I ran out of time...| <https://youtu.be/hOqeGyfNjQo> |
+|February|?||
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?
