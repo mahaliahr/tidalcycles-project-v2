@@ -1,14 +1,14 @@
-let scale = getScale (scaleTable ++ [("techno", [0,2,3,5,7,8,10]),
-                                     ("broken", [0,1,4,7,8,10])
-                                    ])
-
-d1 $ n (scale "techno" "0 1 2 3 4 5 6 7") # sound "arp"
-
-d1 $ rolledBy "<0.45>" $ n "<a'm9'8 e'7sus4'8>" # sound "superpiano"
-
-
-lookup "phrygian" scaleTable
--- $ qtrigger 1 // start from the start of the cycle
+-- let scale = getScale (scaleTable ++ [("techno", [0,2,3,5,7,8,10]),
+--                                      ("broken", [0,1,4,7,8,10])
+--                                     ])
+--
+-- d1 $ n (scale "techno" "0 1 2 3 4 5 6 7") # sound "arp"
+--
+-- d1 $ rolledBy "<0.45>" $ n "<a'm9'8 e'7sus4'8>" # sound "superpiano"
+--
+--
+-- lookup "phrygian" scaleTable
+-- -- $ qtrigger 1 // start from the start of the cycle
 
 chordList
 
@@ -23,39 +23,27 @@ d1 $ every 4 (0.25 <~) $ chunk 4 (|- note 5) $ n ("b'minor11 [0,4,7,11]") # soun
 # legato 2
 # vowel "u i u"
 
-d9 silence
+d silence
 
 d2 $ someCycles (jux rev) $ every 4 (0.25 <~) $ n "b'minor11 c d g" # sound "superpiano"
 # legato 2
 # octave "4 2"
 # vowel "a e"
+# gain 0.9
 
-d silence
-
-d15 $ sometimes (slow 2) $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "amencutup"
-# gain "1.2 1.5 1.8"
--- # squiz "0..2"
-
-d16 $ splice 2 20 $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "break:0"
-# gain "1.4 1.6 1.9"
-# squiz "0..2"
-
-d4 $ n "0 .. 4" # sound "juno"
-# hpf 500
+d3 $ striate "<2 4>" $ every 4 (0.25 <~)$ n ("b'minor11 [0,4,7,11]") # sound "superpiano"
+# octave 4
+# legato 2
+# vowel "u i u"
+# gain 0.6
 
 d9 $ n "b'm c d g'm" # sound "superpiano"
-# room 0.9
-# crush "4 5"
+# room 0.4
+-- # crush "4 5"
 -- # gain 1.2
+# sz 0.9
 
-d11 $ layer [id, jux rev, fast 2, striate 4]$ n "5 7 8 5"
-# sound "superpiano"
--- # distort 0.3 -- MORE
-# gain 1
-# octave "4 5 4"
--- # scram 0.1
-
-d9 silence
+d3 silence
 
 -- splice 2 4
 d4 $ slice "8" "0 1 2 3 4 5 6 7" $ sound "fm:3 fm:4"
@@ -63,6 +51,33 @@ d4 $ slice "8" "0 1 2 3 4 5 6 7" $ sound "fm:3 fm:4"
 # lpf "1000 600 300"
 # sz 0.9
 -- # gain 0.75
-# gain 0.9
+# gain 0.8
 
-d9 silence
+d5 $ n "0 0 0 [0 1 3 4 5 6]/3" # sound "cpu"
+
+d15 $ sometimes (slow 2) $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "amencutup"
+# gain "1.2 1.5 1.8"
+# squiz "0..2"
+-- # gain "1.2"
+
+d16 $ splice 2 20 $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "break:0"
+# gain "1.4 1.6 1.9"
+# squiz "0..2"
+
+d13 $ splice 2 10 $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "break:9"
+# gain "1.4 1.6 1.9"
+# squiz "0..2"
+
+d4 $ n "0 .. 4" # sound "juno"
+# hpf 500
+# gain 1.1
+
+
+d11 $ layer [id, jux rev, fast 2, striate 4] $ chunk 4 (|- note 5) $ n "5 7 8 5"
+# sound "superpiano"
+# distort 0.3 -- MORE
+# gain 1.1
+# octave "4 5 4"
+-- # scram 0.1
+
+d16 silence
