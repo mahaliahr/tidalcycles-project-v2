@@ -4,29 +4,26 @@ setcps 0.6
 -- REMIX of 2020
 
 
-
-
-
-d15 $ rarely (slow 2) $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "amencutup"
+-- d15 $ rarely (slow 2) $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "amencutup"
 -- # gain "1.2 1.5"
 -- # speed "1.2"
-# room 0.25
+-- # room 0.25
 
 
 d16 $ splice 2 20 $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7" # sound "break:0"
 # gain "1.4 1.6"
-# squiz "0..2"
+-- # squiz "0..2"
 
 hush
 
-d15 silence
+d10 silence
 
 d10 $ sometimes (jux rev) $ sometimes(hurry "<2 4>") $ n "2*2" # sound "<jungbass:6 feelfx>"
 # distort 0.2
 # room 0.3
 # sz 0.9
 # lpf (range 500 2000 sine)
-# gain "1"
+# gain "0.8 0.9 1"
 
 -- slice and splice
 d11 $ striate 4 $ every 4 (jux rev) $ slice "8 10" "0 .. [<0 3 8> 10]" $ sound "<rave:5 rave:8> rave:2"
@@ -37,7 +34,7 @@ d11 $ striate 4 $ every 4 (jux rev) $ slice "8 10" "0 .. [<0 3 8> 10]" $ sound "
 # sz 0.9
 # squiz "0..2"
 
-d11 silence
+d silence
 
 
 
@@ -46,9 +43,9 @@ d11 silence
 d1 $ every 2 (# crush "4 5 6") $ sound "house(<5 7 9>, 16)" # pan "1 1.2"
 # gain "1 1.1"
 # vowel "e"
-# squiz "0..2"
+-- # squiz "0..2"
 
-d1 silence
+d5 silence
 
 -- bassssssss
 d2 $ every 3 (fast 2) $ sound "bassdm(3,8)"
@@ -58,12 +55,11 @@ d2 $ every 3 (fast 2) $ sound "bassdm(3,8)"
 d5 $ every 4 rev
 $ every 3 (# pan "1 1.2")
 $ sound "future(7,16)"
--- # gain 1.2
+# gain 1.2
 
-d3 silence
 
 d3 $ scramble 4 $ every 3 (fast 2) $ sound "bassdm(3,8)"
--- # gain "1 1.5 1.8"
+# gain "1 1.5"
 # hpf 500
 
 -- //////////////////////
@@ -72,32 +68,32 @@ d3 $ scramble 4 $ every 3 (fast 2) $ sound "bassdm(3,8)"
 
 -- spicy drums
 -- $ sometimes (scramble 4)
-d4 $ sometimes (scramble 4) $ stack [
+d4 $ stack [
   every 2 (jux rev) $ every 2 (hurry "<2 4>") $ n "4 <4*2 ~> <4 4*2> 4",
   every 2 rev $ every 2 (fast 2) $ n "4 <4*2 ~> <4 4*2> 4"]
-# gain "1.2"
+-- # gain "1.2"
 # sound "clubkick:1 <hi clubkick>"
 -- # sound "lo"
 # speed "1 2 1.5"
 
 
-d6 $ someCycles (jux rev) $ spread ($)[striate 2, rev] $ n "[~ <2 2*2> ~ 3*4]" # sound "clap realclaps"
-# lpf 2000
+d6 $ someCycles (jux rev) $ spread ($)[striate 2, rev] $ n "[~ <2 2*2> ~ 3*4]" # sound "hh27"
+-- # lpf 2000
 # octave "5 4"
 
-d6 silence
+d4 silence
 
 -- percussive sprinkle
 d7 $ spreadChoose ($) [gap 2, striate 2] $ every 2 (rev)
 $ n "5 0 ~ [0 2*4]" # sound "<east:1 east:2 east:3>" # squiz "1 2 3"
 # lpf (range 500 1000 sine)
-# gain 1.1
+-- # gain 1.1
 
 d8 silence
 
 -- funky computer
 -- $ someCycles (jux rev) $ sometimes (scramble 2)
-d8 $ every 2 (hurry 2) $ n "[3 ~ 1*3, 5 ~ 3*2 5]" # sound "glitch"
+d8 $ every 2 (hurry 2) $ n "[3 ~ 1*3, 5 ~ 3*2 5]" # sound "glitch2"
 # speed "1 0.8 1.2"
 # gain "1"
 # octave "5..1"
@@ -111,12 +107,13 @@ d13 $ striate "4" $ sometimes (jux rev) $ n "<2 5 7>"
 # gain "1.1 1.3"
 # octave "3 2"
 
-d14 $ degradeBy "0.3 0.8" $ striate "8" $ chunk 4 (|- note 5) $ sometimes (jux rev) $ n "<2 5 7>"
+-- $ degradeBy "0.3 0.8"
+d14 $ striate "8" $ chunk 4 (|- note 5) $ sometimes (jux rev) $ n (arp "pinkyup" "c<2 5 7>")
 # sound "superfm"
-# gain "1.1 1.3"
-# octave "5 4"
-# lpf 300
-# lpq 0.2 -- range on this
+-- # gain "1.1 1.3"
+# octave "5 4 3"
+-- # lpf 300
+# lpq (range 0.2 0.8 sine) -- range on this 0.2
 
 unsolo 14
 
