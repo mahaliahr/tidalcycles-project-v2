@@ -1,22 +1,28 @@
 -- $ chop "[4, 8]"
 d1
--- $ layer []
-$ sometimes (jux rev)$ iter 2 $ n "[<0> .. <3>]"
-# sound "vox-slice"
+-- $ layer [id, jux rev, (# octave 5)]
+$ sometimes (jux rev) $ randslice 8
+-- $ n "[<0 5> .. <3 12>]"
+$ sound "vox-slice:2"
 # gain "0.7"
 # hpf (range 500 1000 sine)
 -- # octave "5 6"
 # speed "1 0.5 0.8"
 
-d3 $ jux rev $ splice 8 "0 3 2 4 [2 4]*2 4" $ sound "bsnoise"
-# gain 1.2
+d3 $ sometimes (scramble 2)$ striate "4 8" $ splice 8 "[0 <3 2> 4 0 <3 2> [4 3]*2]" $ sound "bsnoise"
+# gain 1
+
+d5 $ striate "2 4" $ every 2 (scramble 2) $ splice 4 "<[0 .. 8] 3 [3 .. 9] 4>" $ sound "tonal-bass:12"
+# lpf (range 500 1000 $ slow 2 sine)
 
 unsolo 3
 
 d8 $ sometimes (slow 2) $ fast 8 $ randslice 32 $ sound "fm:10 fm:12"
--- # gain 1.1
+# gain 1
+# speed "0.8 1 0.75"
+-- # room
 
-d8 silence
+d2 silence
 
 -- ///////////////
 
@@ -27,6 +33,7 @@ d2 $ splice 2 8 $ sound "sk-breaks"
 
 d1 $ splice 2 20 $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7"
 # sound "break:0"
+# gain 1.2
 -- # gain "1.4 1.6"
 -- # squiz "0..2"
 
@@ -34,13 +41,14 @@ d3 $ splice 2 8 $ sound "amen_breaks"
 -- # gain 1.2
 -- # squiz "0..2"
 
-d16 silence
+d1 silence
+
+unsolo 3
 
 
 
 
-
-d8 silence
+d2 silence
 
 hush
 
@@ -48,7 +56,7 @@ hush
 d13 $ sometimes(jux rev) $ arp "<diverge>" $ n "c'm ~"
 # sound "supervibe"
 # legato 5
--- # distort 0.2 -- MORE
+# distort 0.2 -- MORE
 -- # gain 1.2
 # octave "3 2"
 
@@ -56,29 +64,29 @@ unsolo 13
 
 
 -- $ degradeBy (range 0.25 0.75 sine)
-d14 $ striate 2 $ sometimes(jux rev) $ arp "thumbup" $ n "<f'm! g'm ~>"
+d14 $ sometimes (scramble 4) $ striate "2 4 8" $ sometimes(jux rev) $ n "<f'm! g'm ~>"
 # sound "supervibe"
 # legato 5
--- # distort (range 0.2 0.7 $ slow 2 sine) -- MORE
+# distort (range 0.2 0.7 $ slow 2 sine) -- MORE
 -- # gain 1.2
-# octave "4"
+# octave "4 5"
 
 -- $ degradeBy
 d15 $ layer [id, slow 2, jux rev] $ striate "<4 2>" $ n "0 .. 3"
 # sound "superfm"
 # octave "3 2"
-# gain "1.1 1.3"
+-- # gain "1.1 1.3"
 
-d16 $ echo 4 0.2 0.75 $ arp "thumbup" $ n "<f'm! g'm ~>"
-# sound "superfork"
+d16 $ striate 4 $ echo 4 0.2 0.75 $ arp "thumbup" $ n "<f'm! a'm ~>"
+# sound "supervibe"
 -- # legato 5
 # distort (range 0.2 0.8 sine) -- MORE
 -- # gain 1.2
 -- # octave "6"
 
-d14 silence
+d15 silence
 
--- d5 $ slow 2 $ striate 4 $ chop 4 $ sound "tonal-bass:10"
+
 
 
 
