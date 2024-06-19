@@ -16,6 +16,8 @@ One 'track' per month.
 |February|don't love what I made this month, but some nice bits that I'll probably revisit| <https://youtu.be/H-4Rnx6h_gI>|
 |March|developed the feb track into something I like more, though I still feel like I might do more with it|<https://on.soundcloud.com/ve29ntMa77KKxYJ46>|
 |April|playing with one sample|<https://youtu.be/_IyHHRxLPkM>|
+|May|clip of what I played at algorave 4/6 (but worked on throughout May)|<https://youtu.be/2la0gsX5JhY>|
+|June|||
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?
@@ -37,11 +39,11 @@ Single Sound Source: Create an entire track using variations of a single sound o
 
 Monophonic Composition: Use only one note at a time throughout the track, avoiding chords and harmonies.
 
-Reverse Sounds: Utilise backward sounds or melodies to create a unique texture.
+~Reverse Sounds: Utilise backward sounds or melodies to create a unique texture.~
 
 No Percussion: Build a track without any traditional percussive elements, focusing on melody and harmony.
 
-Ambient Only: Create a track that is entirely ambient, focusing on mood and atmosphere rather than rhythm and melody.
+Ambient Only: Create a track that is entirely ambient, focusing on mood and atmosphere rather than rhythm and melody. 
 
 Fixed BPM: Stick to a predetermined beats-per-minute (BPM) that you don't usually work with.
 

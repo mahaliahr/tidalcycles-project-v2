@@ -1,80 +1,87 @@
 -- ease in
-d13 $ striate "2 4" $ echo 4 0.2 0.75 $ sometimes(jux rev) $ n "c'sus2"
+-- $ striate "2 <4 8>"
+d13 $ striate "2" $ sometimes(jux rev) $ n "c'sus2"
 # sound "supervibe"
 # legato 5
 # room 0.35
--- # gain 0.7
-# gain (range 0.2 0.7 $ slow 2 sine)
+# gain 0.7
+-- # gain (range 0.2 0.7 $ slow 2 sine)
 # octave "4"
+
+
+
+
+d1 silence
 
 
 d1 $ every 2 (scramble 2)
 $ splice 8 10 $ sound "choir"
--- # gain "1.1 1.2"
+-- # gain "0.9"
 -- # distort "0.2 0.3"
 # lpf (range 500 1000 sine)
--- # octave "5 3"
 # speed "1 0.8 0.6"
 
 
 d8 $ iter 2 $ n "[0 .. 3]0*2" # sound "juno"
 -- # hpf 500
-# gain "0.8 0.9"
--- # speed (range 0.5 1 slow $ sine)
+-- # gain "0.85 0.9"
+
 
 -- ///////////////
 
-
-d14 silence
-
-
 d3 $ splice 2 20 $ every 3 (jux rev) $ sound "breaksss"
-# gain 1.1
--- # gain "1.4 1.6"
+-- # gain 0.95
 -- # squiz "0..2"
+
+
+
 
 /////
 
 d2 $ splice 2 8 $ sound "sk-breaks"
--- # gain 1.2
+# gain 1.1
 
 d4 $ splice 2 8 $ sound "amen_breaks"
--- # gain 1.2
-# squiz "0..2"
+# gain 1.1
+-- # squiz "0..2"
 
 //////
 
--- $ off 0.2(+5)
+d3 silence
+
+
 -- $ chunk 4 (|+| note "5 -5")
-d13 $ chunk 4 (|+| note "5 -5") $ sometimes(jux rev) $ n "c'sus2 ~"
+d13 $ chunk 4 (|+| note "5 -5") $ echo 4 0.2 0.75 $ sometimes(jux rev) $ n "c'sus2 ~"
 # sound "supervibe"
 # legato 5
 # room 0.35
-# gain (range 0.4 0.7 $ slow 2 sine)
+# gain (range 0.5 0.75 $ slow 2 sine)
 # octave "4 3"
 
--- $ degradeBy (range 0.25 0.75 sine)
+
+
+-- $ degradeBy (range 0.25 0.75 sine) $ striate "2 4 8"
 d14 $ striate "2 4 8" $ sometimes(jux rev) $ n "<f'm g'm ~>"
 # sound "supervibe"
 # legato 5
-# distort (range 0.2 0.5 $ slow 2 sine) -- MORE
-# gain 0.75
+-- # distort (range 0.2 0.4 $ slow 2 sine)
+# gain 0.85
 # octave "4 5"
 
--- $ degradeBy
+-- $ degradeBy "0.25 0.5 0.75"
 d15 $ layer [id, slow 2, jux rev] $ striate "<4 2>" $ n "0 .. 3"
 # sound "superfm"
 # octave "3 2"
-# gain 0.9
+# gain 0.95
 -- # distort "0.2 0.3 0.5"
 
 d16 $ striate 4 $ echo 4 0.2 0.75 $ arp "diverge" $ n "<c'sus2>"
 # sound "cs80lead"
 # lpf 1000
 # legato 5
-# distort (range 0.2 0.8 sine) -- MORE
-# gain (range 0.75 0.8 sine)
--- # octave "7 8"
+# distort (range 0.2 0.7 sine) -- MORE
+# gain (range 0.85 0.7 sine)
+# octave "7 8"
 
 d13 silence
 
