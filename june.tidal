@@ -1,0 +1,156 @@
+d1 $ scramble 4 $ sound "birds birds:1 birds:2"
+
+d3 $ striate 4 $ sound "crow*4"
+
+d3 $ striate 4 $ sound "print*4 print:10 print print"
+# lpf 1000
+
+d4 $ striate 4 $ slow 2 $ n "0..5" # sound "diphone2"
+
+
+
+-- setcps 0.25
+--
+-- mutelist = mapM_ mute
+--
+-- unmutelist = mapM_ unmute
+--
+--
+--
+--
+-- -- airport sounds
+--
+-- -- AMBIENCE
+-- d1 $ splice 8 "0 1 2 3 4 5 6 7" $ sound "airport:3"
+-- # gain 1.5
+--
+-- -- TAKE OFF!
+-- d1 $ sound "airport:2"
+-- # room 0.8
+-- # gain 1.1
+-- -- # distort 0.3
+-- ------------------------------------------------------------------------------
+--
+-- --FRAGMENTED DING DONG
+-- d5 $ jux rev $ sometimes(striate 4) $ iter 2 $ chop "12" $ sound "airport:4"
+-- # gain "0.5 0.8 1 1.1"
+-- # room 0.8
+-- -- # distort 0.5
+--
+-- --DING DONG
+-- d5 $ sound "airport:4"
+-- # gain 1
+-- # room 0.8
+-- # distort 0.3
+--
+-- -- FRAGMENTED TAKE OFF
+--
+-- d6 $ sometimes(jux rev) $ splice 8 "0 1 2 3 4 5 6 7" $ sound "airport:2"
+-- # gain 0.6
+-- # room 0.8
+--
+-- ----------------------------------------------------------------------------------
+-- -- FIRST HALF VOICES
+--
+-- -- VOICE: tail wind (if bring back in second half use lpf)
+-- --d3
+-- d3 $ iter 4 $ splice 10 (slow 3 "0 .. 25") $ sound "airport:1"
+-- # gain 1.1
+-- # hpf "500"
+-- -- # lpf "500"
+--
+-- -- VOICE: weather in london is clear and sunny
+-- --d2
+-- xfadeIn 2 1 $ splice 8 "0 1 2 3 4 5 6 7" $ sound "airport"
+-- -- # distort 0.2
+-- -- # gain "1.7"
+-- # hpf "500"
+-- -- # lpf "500"
+--
+-- d4 silence
+--
+-- --------------------------------------------------------------------------------
+-- -- SECOND HALF VOICES
+--
+-- -- VOICE: we are cruising
+-- --d4
+-- d4 $ iter 4 $ splice 8 "0 1 2 3 4 5 6" $ sometimes(# crush 5)$ sound "airport:7"
+-- -- # gain "1"
+-- # gain "1.1"
+-- # room 0.6
+-- # hpf "500"
+-- -- # speed (slow 2 $ perlin + 0.5)
+-- # lpf "1500"
+--
+-- -- VOICE: emergency (slow down towards the end, increase)
+-- --d8
+-- d8 $ iter "2 6" $ sometimes(jux rev) $ splice 23 "0 1 2 3 4 5 6 7 8 9 10" $ sound "airport:5" --add striate at the end?
+-- -- # gain 1.1
+-- # room 0.8
+-- # speed 0.8
+-- -- # distort "0 0.1 0.2" -- bring this in towards the end
+-- -- # lpf 800 -- comment out when bass hits
+--
+-- -- VOICE: captains greeting
+-- --d9
+-- xfadeIn 9 1 $ sometimes (jux rev) $ splice 8 "0 1 2 3 4 5 6 7 8 9 10" $ sound "airport:6"
+-- # gain 1.1
+-- -- # room 0.8
+-- # hpf "500"
+--
+-- d9 silence
+--
+-- --------------------------------------------------------------------------------
+--
+-- -- MELODY (DROP THE MELODY (other than bass) BEFORE THE END) ----------------------------------------------------
+--
+-- -- first half melody
+-- d10 $ sometimes(jux rev) $ striate 4 $ n "<0 2 7>" # sound "superfm"
+-- # distort 0.05
+-- # gain 0.7
+--
+-- d11 $ sometimes(chunk 4 (|+ note 5)) $ striate 4 $ n "<2 5 7>"
+-- # sound "superfm"
+-- # distort 0.2
+-- # gain "0.6 0.8 0.9"
+--
+-- d8 silence
+--
+-- --------------------------------------------------------------------------------
+--
+-- -- second half melody
+--
+-- d10 $ sometimes(jux rev) $ striate 4 $ n (arpg "'min7 <0 2 7>") # sound "superfm"
+-- # distort 0.05
+-- ---make gain gradually louder
+-- # gain "0.8 1"
+-- -- # gain "0.7"
+--
+-- d12 $ sometimes(chunk 2 (|- note "5 10")) $ striate 4 $ n "<2 5 7>"
+-- # sound "superfm"
+-- -- # distort 0.35
+-- # gain "0.8 0.9 1.1"
+-- # legato 4
+--
+-- d4 silence
+--
+-- -- bring up distortion for drama
+-- d13 $ sometimes(jux rev) $ n "<0 2 7>"
+-- # sound "superfm"
+-- -- # distort 0.2 -- MORE
+-- # gain 1.1
+-- # octave "3 2"
+--
+-- -- BRING IN AT THE END
+-- d7 $ layer [id, jux rev, fast 2, striate "<4 [4 8]>"]$ n "0 5 <0 2 7>" # sound "superfork"
+-- # distort 0.05
+-- # gain 1.1
+-- # lpf 900
+-- # octave "4"
+-- # room 0.8
+--
+-- mutelist [2,8,9]
+--
+-- unmutelist [2,8,9]
+--
+-- --------------------------------------------------------------------------------
