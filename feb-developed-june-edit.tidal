@@ -7,30 +7,31 @@ setcps 0.75
 
 -- $ striate "2 3 4"
 
-d1 $ every 4 (0.25 <~) $ chunk 4 (|- note 5) $ n ("b'minor11 [0,4,7,11]") # sound "superfork"
+d1 $ every 4 (0.25 <~) $ chunk 4 (|- note "5") $ n ("b'minor11 [0,4,7,11]") # sound "superpiano"
 # octave "3"
--- # legato 2
+# sustain 1.5
 # vowel "u i u"
--- -- # lpf 1000
+# lpf 1000
 -- -- # cps "0.5 1"
 
 
 d4 $ every 4 (0.25 <~) $ every 4(fast 2) $ n (arp "<updown up>" "d[0,4,7,11]") # sound "superpiano"
 # octave "6 5"
-# legato 2
+# velocity 1.2
+# sustain 3.5
 # vowel "u i u"
 -- # pan "0.3 0.8 1 0.2"
-# gain "0.7"
--- -- # lpf 1000
+# gain "0.8"
+# lpf 1000
 
-d3 silence
+d4 silence
 
 d2 $ someCycles (jux rev) $ every 2 (slow "<2 4>") $ sometimes (fast 2) $ n "b'minor11 c d g" # sound "superpiano"
-# legato 2
+# sustain 2
 # octave "4 3"
 # vowel "i e i"
-# gain 0.5
--- -- # hpf (range 500 100 sine)
+# gain 0.9
+-- # hpf (range 500 100 sine)
 -- # lpq 0.2
 
 -- $ range 1 1.5 sine
@@ -39,19 +40,19 @@ hush
 -- $ striate "<2 4>"
 d3 $ striate "<2 4>" $ every 4 (0.25 <~)$ n ("b'minor11 [0,4,7,11]") # sound "superpiano"
 # octave "5 4 <5 6>"
-# legato 2
+# sustain 2
 # vowel "u i u"
 -- # gain 0.8
--- # lpf 1000
+# lpf 1000
 
 d9 $ someCycles (jux rev)
--- $ every 2 (# octave "3 2")
+$ every 2 (# octave "3 2")
 $ fast 2 $ n "b'm c d d" # sound "superpiano"
 # room 0.4
 # vowel "u"
 -- # lpf 1000
-# crush "4 5"
--- # gain 1.1
+-- # crush "4 5"
+# gain 1.1
 
 -- pop / clubkick
 -- $ striate 2
@@ -93,23 +94,23 @@ d7 $ iter 2 $ n "[0 .. 3]~ 0*2 3" # sound "juno"
 -- # hpf 500
 -- # gain 1.1
 
-d9 silence
+d3 silence
 
 -- after a while # superchip supertron
 -- $ chunk 4 (|- note 5)
 -- $ degradeBy "<0.2 0.5 0.7>"
-d11 $ degradeBy "<0.2 0.5 0.7>" $ layer [id, jux rev, slow 2, striate 2]
+d11  $ layer [id, jux rev, slow 2, striate 2]
 -- $ iter 2 $ chunk 4 (|- note 5) $ n (arp "diverge" "<d b>[5,7,8,5]")
 $ iter 2 $ off 0.25 (|+|5) $ chunk 4 (|- note 5) $ n (arp "diverge" "[d5,d7,c8,c5]")
-# sound "<superchip supertron>"
--- # gain 1.1
--- # octave "4 5 4"
-# octave "5 6"
+# sound "<superpiano>"
+# gain 1.1
+# octave "4 5 4"
+-- # octave "5 6"
 # vowel "e"
 # lpf 900
--- # lpq (range 0.2 0.5 sine)-- range on this
+# lpq (range 0.2 0.5 sine)-- range on this
 
-
+unsolo 11
 
 d11 silence
 

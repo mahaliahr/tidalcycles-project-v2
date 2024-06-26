@@ -1,0 +1,153 @@
+setcps 0.25
+
+-- TAKE OFF
+d1 $ sound "airport:2"
+# room 0.8
+# gain 0.95
+-- # distort 0.3
+
+------------------------------------------------------------------------------
+
+-- FRAGMENTED TAKE OFF
+d1 $ sometimes(jux rev) $ splice 8 "0 1 2 3 4 5 6 7" $ sound "airport:2"
+# gain (range 0.5 0.8 sine)
+# room 0.8
+
+------------------------------------------------------------------------------
+
+--FRAGMENTED DING
+d5 $ jux rev $ sometimes(striate 4) $ chop 12 $ sound "airport:4"
+# gain "0.5 0.8 1"
+# room 0.8
+# speed (range 0.75 1 sine)
+
+
+--DING
+-- every ? change speed (at end)
+d5
+-- $ every 1 (# speed 0.5)
+$ slow 2 $ sound "airport:4 ~ ~"
+# gain 1.2
+# room 0.8
+# distort 0.3
+
+
+d4 silence
+----------------------------------------------------------------------------------
+
+-- VOICE >> ezyjt
+d2 $ sometimes (jux rev) $ splice "50 75" "[~ <0 8 15>..< 7 15 22>]" $ sound "airport:8"
+-- # distort 0.2
+# gain "1.4"
+# hpf "200"
+-- # lpf "500"
+
+-- VOICE >> weather in ldn
+d2 $ sometimes (jux rev) $ splice 35 "[~ <0 8 15>..< 7 15 22>]" $ sound "airport"
+-- # distort 0.2
+# gain "1.35"
+# hpf "200"
+-- # lpf "500"
+
+-- VOICE >> we are cruising
+-- $ sometimes(# crush 4)
+d4 $ splice 15 "<0 6 12>..<5 11 17>" $ sound "airport:7"
+-- # gain "1"
+# gain "1.2"
+-- # room 0.6
+-- # hpf "500"
+# speed (slow 2 $ perlin + 0.5)
+# lpf "1500"
+
+-- VOICE >> emergency (slow down towards the end, increase)
+d3 $ splice 75 "<0 16 32> .. <15 31 46>" $ sound "airport:5"
+# gain 1.3
+-- # squiz "0..1"
+-- # room 0.3
+# speed 0.85
+-- # lpf 500 -- comment out when bass hits
+
+-- VOICE >> captain
+d3 $ slow 2 $ slice "<100>" "0 ..<100>" $ sound "airport:6"
+# gain 1.5
+# speed 0.9
+-- # room 0.8
+# hpf "500"
+
+d2 silence
+
+--------------------------------------------------------------------------------
+-- MELODY 16 - 11
+
+-- first half melody
+d15 $ sometimes(jux rev) $ striate "2" $ n "c'm[<0*2 2*2 7*2>]" # sound "[bass8, superfm]"
+# distort 0.05
+# legato 2
+# octave "4 5"
+# gain 0.85
+
+d14 $ sometimes(chunk 4 (|+ note 5)) $ striate 2 $ n "c'm<2*2 5*2 7*2>"
+# sound "superfm"
+# distort 0.2
+# gain "0.6 0.8 0.9"
+
+unsolo 14
+
+-- ////////////////////////
+
+-- second half melody
+
+-- change to piano @ end
+d15 $ slow 2 $ sometimes(jux rev) $ striate 4 $ n (arpg "'min7 <0 2 7>")
+# sound "superpiano"
+# distort 0.05
+# legato 2
+-- -make gain gradually louder
+-- # gain "0.8 1"
+# gain 1
+
+d13 $ sometimes(chunk 2 (|- note "<5 10>")) $ striate 2 $ n "c'm<2*2 5*2 7*2>*2"
+# sound "[superfm, flbass]"
+# distort 0.25
+# gain "0.75"
+# legato 3
+
+
+-- bring up distortion for drama
+d12 $ every 2 (0.25 <~) $ sometimes(jux rev) $ n "<0*2 2*2 7*2>*2"
+# sound "superfm"
+-- # distort 0.3 -- MORE
+# gain 1
+# octave "3 2"
+
+d11 silence
+
+
+-- BRING IN AT THE END
+d11 $ slow 2 $ layer [id, jux rev, fast 2, striate 4]$ n "<0*4 2*2 7*2>" # sound "superfork"
+# distort 0.05
+# gain 1.125
+# lpf 900
+# octave "4"
+# room 0.8
+# sz 0.6
+
+
+
+d11 d15 d4 (breaks) d1 d2
+
+mutelist = mapM_ mute
+
+unmutelist = mapM_ unmute
+
+mutelist [11,10,15,4,2]
+
+unmutelist [11,10,15,4,2]
+
+d10 silence
+
+hush
+
+
+
+--------------------------------------------------------------------------------

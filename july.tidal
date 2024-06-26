@@ -1,0 +1,24 @@
+d3 $ chop 2 $ sound "church-bells"
+-- # crush 5
+-- # speed 0.8
+-- # gain 0.2
+-- # fshift 1
+
+-- striate > chop
+d2 $ sometimes (jux rev) $ chop 20 $ sound "[birds birds:4] [birds:1 birds:2] birds:3 birds:5"
+# lpf 500
+# speed "0.8 0.6"
+
+--
+d3 $ striate 4 $ sound "crow*4"
+# lpf 1000
+
+
+-- $ every 2 (# speed 0.75)
+d4 $ every 2 (iter "2 4") $ every 2 (slow 2) $ slice 12 "0 1 2 ~ 3 4 5 6 7 8 ~" $ sound "house-vocal vox-slice"
+# gain 0.9
+# lpf (range 300 1000 sine)
+# speed 1.5
+
+d4  $ chunk 4 (|- note 5) $ n "c'm" # sound "dbl-bass"
+-- # gain 1.1
