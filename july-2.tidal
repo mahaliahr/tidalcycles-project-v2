@@ -1,0 +1,173 @@
+--
+-- chordList
+--
+-- import Sound.Tidal.Chords
+
+
+once $ sound "orchestra"
+-- # gain 1.1
+# hpf 400
+
+d1 $ slice "20" "0 .. [5 10]" $ sound "orchestra"
+# gain 0.8
+# octave "3 4"
+# hpf 400
+
+$ echo 4 0.2 0.5
+
+d4 $ slow 2 $ jux rev $ loopAt 8 $ chop "10" $ sound "orchestra"
+-- # gain 1.1
+# lpf 400
+
+d5 $ splice "20" "0 .. [5 10]" $ sound "orchestra"
+# gain 1.1
+# lpf 400
+
+-- d6 $ fast 4 $ randslice 5 $ sound "orchestra"
+-- # hpf 400
+
+-- fragment this 4, 8
+d3 $ sometimes (jux rev) $ striate 4 $ splice "20" "0 .. [5 10]" $ sound "orchestra"
+# gain 1.1
+# lpf 400
+
+d6 $ jux rev $ loopAt 4 $ chop "16 32" $ sound "orchestra"
+# hpf 1000
+
+d5 $ sometimes (jux rev) $ slice "20" "0 .. [5 10]" $ sound "orchestra"
+# gain 0.85
+-- # octave "6"
+-- # octave 8
+
+d3 silence
+
+
+
+
+
+
+setcps 0.75
+
+-- $ striate "2 3 4" b'm c d a
+
+d1 $ every 4 (0.25 <~) $ chunk 4 (|- note "5") $ n ("d[0,4,7,11]") # sound "superpiano"
+# octave "3"
+# sustain "1.5 3 5"
+# vowel "u i u"
+# lpf 1000
+# gain 1.1
+-- -- # cps "0.5 1"
+
+
+d4 $ every 4 (0.25 <~) $ every 4(fast 2) $ n (arp "<updown up>" "d[0,4,7,11]") # sound "rhodes"
+# octave "6 5"
+# velocity 1.2
+# sustain "1.5 3 5"
+-- # sustain 3.5
+# vowel "u i u"
+-- # pan "0.3 0.8 1 0.2"
+# gain "0.8"
+# lpf 1000
+
+d4 silence
+
+d2 $ someCycles (jux rev) $ every 2 (slow "<2 4>") $ sometimes (fast 2) $ n "b'm c d a" # sound "rhodes"
+# sustain 2
+# octave "5 6"
+# vowel "i e i"
+-- # gain 0.9
+-- # hpf (range 500 100 sine)
+-- # lpq 0.2
+
+-- $ range 1 1.5 sine
+hush
+
+-- $ striate "<2 4>"
+d3 $ striate "<2 4>" $ every 4 (0.25 <~)$ n ("b'minor11 [0,4,7,11]") # sound "rhodes"
+# octave "5 4 <5 6>"
+# sustain 2
+# vowel "u i u"
+# gain 0.8
+# lpf 1000
+
+d9 $ someCycles (jux rev)
+-- $ every 2 (# octave "3 2")
+$ fast 2 $ n "b'm c d d" # sound "superpiano"
+# room 0.3
+# vowel "u"
+-- # lpf 1000
+-- # crush "4 5"
+-- # gain 1.1
+
+-- pop / clubkick
+-- $ striate 2
+d4 $ n "0 0 1 [0 1 3 4 5 6]/3"
+# sound "clubkick"
+# lpf 1200
+
+d3 silence
+
+-- Heavy
+d5 $ every 2 (scramble 4) $ iter 2 $ n "0 0 0 [0 1 3 4 5 6]/3"
+# sound "bass2"
+-- # gain 1.1
+
+d6 $ scramble 2 $ iter 2 $ n "0 0 0 [0 1 3 4 5 6]/3"
+# sound "bassfoo"
+-- # gain 1.1
+
+d15 $ sometimes (slow 2) $ every 3 (jux rev) $ striate 2 $ n "[0 .. 7]"
+# sound "amencutup"
+# gain "1.2 1.5 1.75"
+-- # squiz "0..2"
+-- # gain "1.2"
+# hpf 500
+
+d16 $ splice 2 20 $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7"
+# sound "sk-breaks:4"
+-- # gain "1.2"
+-- # squiz "0..2"
+
+unsolo 16
+
+d13 $ splice 2 10 $ every 3 (jux rev) $ n "1 [0 .. 3] 6 7"
+# sound "breaksss:5"
+# gain "1.4 1.6"
+-- # squiz "0..2"
+
+d13 silence
+
+d7 $ iter 2 $ n "[0 .. 3]~ 0*2 3" # sound "juno"
+-- # hpf 500
+-- # gain 1.1
+
+d3 silence
+
+-- after a while # superchip supertron
+-- $ chunk 4 (|- note 5)
+-- $ degradeBy "<0.2 0.5 0.7>"
+d11  $ layer [id, jux rev, slow 2, striate 2]
+-- $ iter 2 $ chunk 4 (|- note 5) $ n (arp "diverge" "<d b>[5,7,8,5]")
+$ iter 2 $ off 0.25 (|+|5) $ chunk 4 (|- note 5) $ n (arp "diverge" "[d5,d7,c8,c5]")
+# sound "<superpiano>"
+# gain 1.1
+# octave "4 5 4"
+-- # octave "5 6"
+# vowel "e"
+# lpf 900
+# lpq (range 0.2 0.5 sine)-- range on this
+
+unsolo 11
+
+d11 silence
+
+-- mutelist = mapM_ mute
+--
+-- mutelist [15,16,13]
+--
+-- unmutelist = mapM_ unmute
+--
+-- unmutelist [15,16,13]
+
+
+hush

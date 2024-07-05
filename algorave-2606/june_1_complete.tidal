@@ -2,9 +2,8 @@
 
 
 -- hh27 >> soskick
-d5
-$ n "[0 2]*4[0 0,5 5]*2" # sound "soskick"
-# gain 1.05
+d5 $ n "[0 2]*4[0 0,5 5]*2" # sound "soskick"
+# gain (range 0.75 1 sine)
 
 
 
@@ -16,28 +15,28 @@ $ n "[~ <2 2*2> ~ <3*4 2*8>]"
 
 --hh breaks > scramble?
 d7 $ splice 10 "0..9" $ sound "break:17"
-# gain "1.25 1.35"
+# gain 1.25
 # lpf "2000"
 
 -- d4 $ every 2 (scramble 8) $ n "[0 2]*4[0 0,5 5]*2" # sound "gabor"
 
 
-d4 silence
 
+d5 silence
 
 
 -- phase 2 >> $ sound "house:5
 -- $ every 2 (# crush "4 5 6") ----
 d4 $ sound "house(<5 7 9>, 16)" # pan "1 1.2"
-# gain "1.2"
+# gain "1.1"
 -- # squiz "0..2"
 
 d5 $ every 3 (fast 2) $ sound "bskick(3,8)"
-# gain "1.4"
+# gain "1.3"
 -- # gain "1.5 1.8"
 -- # hpf 2000
 
-d6 silence
+d4 silence
 
 -- $ someCycles (jux rev) $ sometimes (scramble 2)
 d6 $ every 4 (jux rev) $ brak $ every 2 (hurry 2) $ n "[<3 4> ~ 1 <3 4>, 5 ~ <3 4>*2 5, 1*8]"
@@ -46,14 +45,14 @@ d6 $ every 4 (jux rev) $ brak $ every 2 (hurry 2) $ n "[<3 4> ~ 1 <3 4>, 5 ~ <3 
 
 d7 $ slow 2 $ every 4 (hurry 2) $ every 2 (jux rev)
 $ sound "bskick(5,16)"
-# gain 1.2
+# gain 1.5
+-- # lpf "200"
+-- # distort 0.2
 
-
-d8 $ jux rev $ sometimes(hurry 2)
-$ n "[0 1]*2[<2 3> 4]*2" # sound "amencutup"
+d8 $ jux rev $ sometimes(hurry 2) $ n "[0 1]*2[<2 3> 4]*2" # sound "amencutup"
 # room 0.2
 # hpf "200"
-# gain 0.95
+# gain 1
 # pan "0 0.2 0.5 1.5"
 # speed (fast 4 $ perlin + 0.5)
 # sz 0.8
@@ -62,39 +61,27 @@ $ n "[0 1]*2[<2 3> 4]*2" # sound "amencutup"
 d9 silence
 
 d9 $ every 4 rev
-$ every 3 (# pan "1 1.2 0.7")
+$ every 3 (# pan "1 1.2 0.8")
 $ sound "clubkick(7,16)"
 # gain 1.15
 
-d6 silence
+d4 silence
 
 -- $ every 2 (scramble 4) >> sk-breaks:6 breaksss:6
 d10 $ every 2 (scramble 4) $ splice 8 "0 .. 7"
-$ sound "sk-breaks:3 <sk-breaks:6 breaksss:6>*4"
-# gain 1
+$ sound "sk-breaks:3 <sk-breaks:6 breaksss:6>*2"
+# gain 1.1
 -- # lpf (range 3000 1000 sine)
 -- # squiz "0..2"
 
--- MUTE MID
 
-mutelist = mapM_ mute
+d10 silence
 
-unmutelist = mapM_ unmute
-
-mutelist [12,13,6]
-
-
-
--- bass melody lines
-unmutelist [12,13]
-
--- perc
-unmutelist [6]
 
 
 -- outro
 -- fast? hurry?
-d4 $ brak $ n "[0*2~ 1~ 2*2~ 3*2~]" # sound "<clubkick bskick>"
+d4 $ brak $ n "[0~ 1~ 2~ 3~]*2" # sound "<clubkick bskick>"
 # gain 1.2
 # squiz (range 1 3 sine)
 

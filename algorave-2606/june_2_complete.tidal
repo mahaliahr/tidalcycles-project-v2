@@ -2,12 +2,12 @@
 -- plane
 d1 $ sound "airport:2"
 # room 0.8
-# gain 0.95
+# gain 0.75
 -- # distort 0.3
 
 -- fragmented plane
 d1 $ sometimes(jux rev) $ splice 8 "0 1 2 3 4 5 6 7" $ sound "airport:2"
-# gain (range 0.65 0.8 sine)
+# gain (range 0.55 0.85 sine)
 # room 0.8
 
 d4 silence
@@ -16,18 +16,16 @@ d4 silence
 --DING
 -- every ? change speed (at end)
 d5
--- $ every 1 (# speed 0.5)
+-- $ every 2 (# speed 0.55)
 $ slow 2 $ sound "airport:4 ~ ~"
-# gain 1.25
+# gain 1.3
 # room 0.8
 # distort 0.4
--- # gain 1.15
-
 
 hush
 
 
-d5 silence
+d2 silence
 ----------------------------------------------------------------------------------
 
 -- VOICE >> ezyjt
@@ -35,40 +33,29 @@ d2 $ sometimes (jux rev) $ splice "50 75" "[~ <0 8 15>..< 7 15 22>]" $ sound "ai
 -- # distort 0.2
 # gain "1.25"
 # lpf "3000"
-# lpq (range 0.1 0.3 sine)
 
 -- VOICE >> weather in ldn
-d3
-$ someCycles (jux rev)
-$ splice 35 "[~ <0 8 15>..< 7 15 22>]" $ sound "airport"
-# distort (range 0 0.3 sine)
+d3 $ sometimes (jux rev) $ splice 35 "[~ <0 8 15>..< 7 15 22>]" $ sound "airport"
+-- # distort 0.2
 # pan "0.3 0.8 1.1"
-# gain "1.45"
--- # speed (range 0.95 0.75 sine)
--- # hpf "200"
+# gain "1.3"
+# hpf "200"
 -- # lpf "500"
 
 
 -- VOICE >> emergency (slow down towards the end, increase)
 d3 $ splice 75 "<0 16 32> .. <15 31 46>" $ sound "airport:5"
-# gain 1.35
--- # gain (range 1 1.25 $ slow 2 sine)
+# gain 1.3
 -- # squiz "0..1"
-# room 0.3
+-- # room 0.3
 # speed (range 0.85 0.5 sine)
--- # hpf "200"
-
-d3 silence
 
 -- VOICE >> captain
-d3
-$ every 3 rev
-$ slow 2 $ slice "<100>" "0 ..<100>" $ sound "airport:6"
-# gain 1.25
+d3 $ slow 2 $ slice "<100>" "0 ..<100>" $ sound "airport:6"
+# gain 1.45
 # speed 0.9
-# room 0.5
+-- # room 0.8
 # hpf "500"
-# distort (range 0 0.25 sine)
 
 d4 silence
 
@@ -77,18 +64,15 @@ d4 silence
 
 d15 $ sometimes(jux rev) $ striate "2" $ n "c'm[<0*2 2*2 7*2>]" # sound "[bass8, superfm]"
 # distort 0.05
-# legato 3
+# legato 2
 # octave "4 5"
-# gain 0.8
--- # gain 0.6
+# gain 0.65
 
 
 d14 $ sometimes(chunk 4 (|+ note 5)) $ striate 2 $ n "c'm*2<2*2 5*2 7*2>"
 # sound "[superfm, flbass]"
 # distort 0.2
-# gain (range 0.65 0.75 sine)
-
-unsolo 13
+# gain "0.65 0.75"
 
 d2 silence
 
@@ -100,31 +84,30 @@ d15 $ slow 2 $ sometimes(jux rev) $ striate 4 $ n (arpg "'min7 <0 2 7>")
 # distort 0.05
 # legato 2
 -- -make gain gradually louder
-# gain "0.8 0.9"
-# gain (range 0.8 1 sine)
+-- # gain "0.8 0.9"
+# gain (range 0.85 1.125 sine)
 
 d13 $ sometimes(chunk 2 (|- note "<5 10>")) $ striate 2 $ n "c'm<2*2 5*2 7*2>*2"
 # sound "[superfm, flbass]"
-# distort 0.15
-# gain "0.85"
+# distort 0.25
+# gain "0.7"
 # legato 3
 
 
 -- low end
 d12 $ every 2 (0.25 <~) $ sometimes(jux rev) $ n "<0*2 2*2 7*2>*2"
 # sound "superfm"
-# distort 0.2 -- MORE
-# gain 0.95
+# distort 0.3 -- MORE
+# gain 1.1
 # octave "3 2"
-# legato 2
 
-d11 silence
+d12 silence
 
 
 -- BRING IN AT THE END
 d11 $ slow 2 $ layer [id, jux rev, fast 2, striate 4]$ n "<0*4 2*2 7*2>" # sound "superfork"
 # distort 0.05
-# gain 1.125
+# gain 1.2
 # lpf 900
 # octave "4"
 # room 0.8
@@ -139,7 +122,7 @@ mutelist [11,10,15,4,2]
 
 unmutelist [11,10,15,4,2]
 
-d12 silence
+d3 silence
 
 hush
 
