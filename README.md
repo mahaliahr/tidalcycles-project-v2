@@ -17,7 +17,8 @@ One 'track' per month.
 |March|developed the feb track into something I like more, though I still feel like I might do more with it|<https://on.soundcloud.com/ve29ntMa77KKxYJ46>|
 |April|playing with one sample|<https://youtu.be/_IyHHRxLPkM>|
 |May|clip of what I played at algorave 4/6 (but worked on throughout May)|<https://youtu.be/2la0gsX5JhY>|
-|June|||
+|June|recording of a version of the set I played at Corsica Studios 26/06/24|<https://soundcloud.com/mahalias/corsica-260624>|
+|July||
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?
@@ -43,7 +44,7 @@ Monophonic Composition: Use only one note at a time throughout the track, avoidi
 
 No Percussion: Build a track without any traditional percussive elements, focusing on melody and harmony.
 
-Ambient Only: Create a track that is entirely ambient, focusing on mood and atmosphere rather than rhythm and melody. 
+Ambient Only: Create a track that is entirely ambient, focusing on mood and atmosphere rather than rhythm and melody.
 
 Fixed BPM: Stick to a predetermined beats-per-minute (BPM) that you don't usually work with.
 
