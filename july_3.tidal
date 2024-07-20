@@ -1,0 +1,70 @@
+d1 $ sometimes (jux rev) $ splice " 10 50 75" "[~ <0 8 15>..< 7 15 22>]" $ sound "1kiss"
+# gain 0.8
+# octave "3 4"
+# hpf 400
+# speed 0.2
+
+once $ sound "1kiss"
+
+d2 $ someCycles (jux rev) $ every 2 (slow 2) $ slow 2 $ striate 8 $ sound "1kiss:1"
+-- # gain 0.8
+-- # octave "5"
+# lpf 1000
+-- # speed 0.9
+# room 0.4
+
+unsolo 1
+
+hush
+
+-- d2 $ note "c'maj e'min" # s "gtr"
+-- # gain 0.95
+
+do
+  resetCycles
+
+-- d2 $ slow "[4 2][4 2]" $ every 4 (jux rev) $ note "[a'min*2[a'min/2 a'min]bf'maj][f'maj7*2[f'maj7/2 g'min7]g'min7]" # s "gtr"
+-- # gain 0.95
+
+d2 silence
+
+d5
+$ n "0*8" # sound "soskick(3,8)"
+# gain 1.05
+
+unsolo 5
+
+d6
+$ n "0*8" # sound "supersnare"
+-- # gain 1.05
+
+
+-- d2 $ slow 2 $ note "a'min [a'min/2 a'min] bf'maj f'maj7*2 [f'maj7 g'min7] " # s "gtr"
+-- -- # gain 0.95
+
+d3 $ slow 4 $ note "a'min_ bf'maj f'maj7__ g'min7" # s "superfm"
+# octave "4"
+# sustain 2
+
+d3 $ degradeBy "0.2 0.45" $ striate 2 $ note "f'maj7 g'min7" # s "superfm"
+# gain 0.8
+# octave "5"
+-- # sustain 2
+
+d4  $ chunk 4 (|- note 5) $ n "a'min" # sound "dbl-bass"
+-- # gain 1.1
+# octave "6"
+
+
+d2 $ slow 8 $ striate 8 $ every 2 (scramble 2) $ every 3 (iter 4) $ note "a'min bf'maj f'maj7 g'min7" # s "gtr"
+-- # gain 0.95
+
+unsolo 2
+
+hush
+
+
+
+setcps 0.25
+
+d4 silence
