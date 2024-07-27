@@ -1,56 +1,23 @@
 setcps 0.6
 
-d2 silence
 
-once $ sound "orchestra"
--- # gain 1.1
-# hpf 400
-
-d1 $ slice "20" "0 .. [5 10]" $ sound "orchestra"
--- # gain 0.85
-# octave "5"
-# hpf 400
--- # speed 0.5
-# gain (range 0.85 1 sine)
-
-$ echo 4 0.2 0.5
-
-d4 $ slow 2 $ jux rev $ loopAt 8 $ chop "10" $ sound "orchestra"
+d4 $ jux rev $ loopAt 4 $ chop "32" $ sound "orchestra"
 # gain 1.2
 # lpf 400
-# speed 1.2
+# speed 0.6
 
-d5 silence
-
-d5 $ splice "20" "0 .. [5 10]" $ sound "orchestra"
-# gain 1.1
-# lpf 400
-# speed 0.7
-
-
--- d6 $ fast 4 $ randslice 5 $ sound "orchestra"
--- # hpf 400
-
--- fragment this 4, 8
--- d3 $ sometimes (jux rev) $ striate 4 $ splice "20" "0 .. [5 10]" $ sound "orchestra"
--- # gain 1.1
--- # lpf 400
--- # speed 0.7
 
 d6 $ jux rev $ loopAt 4 $ chop "16 32" $ sound "orchestra"
 # hpf 1000
 # speed 0.2
+# gain 0.95
 
 d5 $ sometimes (jux rev) $ slice "20" "0 .. [5 10]" $ sound "orchestra"
-# gain (range 0.5 0.95 sine)
--- # octave "6"
--- # octave 8
+# gain (range 0.4 1.05 sine)
+-- # speed 1.5
+# gain 0.7
 
 d6 silence
-
-
-
-
 
 
 setcps 0.6
@@ -61,33 +28,24 @@ d1 $ qtrigger $ every 4 (0.25 <~) $ chunk 4 (|- note "5") $ n ("d[0,4,7,11]")
 # sound "superpiano"
 # octave "4 3"
 # sustain "1.5 3 5"
--- # vowel "u i u"
 # lpf 1000
--- # gain 1.1
--- # cps "0.5 1"
+# gain 0.85
 
-d1 silence
+d4 silence
 
 
 d4 $ qtrigger $ every 4 (0.25 <~) $ every 4 (fast 2) $ every 2 (# octave 7)
-$ n (arp "<updown up> converge" "d[0,4,7,11]") # sound "rhodes"
+$ n (arp "<updown up> converge" "d[0,4,7,11]") # sound "superpiano"
 # octave "6 5"
 # sustain "1.5 3"
--- # vowel "u i u"
 # pan "0.3 0.8 1 0.2"
--- # gain "0.75"
+# gain "0.75"
 # lpf 5000
 
-
-unsolo 4
-
-d1 silence
-
-
-d2 $ someCycles (jux rev) $ every 2 (slow "<2 4>") $ sometimes (fast 2) $ n "b'm c d a" # sound "rhodes"
+d2 $ someCycles (jux rev) $ every 2 (slow "< 2 4>") $ sometimes (fast 2) $ n "b'm c d a" # sound "rhodes"
 # sustain 1.2
 # octave "5 6"
-# gain 0.725
+# gain 0.75
 # hpf (range 1000 100 $ slow 4 sine)
 # hpq (range 0.2 0.4 $ fast 2 sine)
 -- # hpq 0.3
@@ -97,89 +55,74 @@ d2 $ someCycles (jux rev) $ every 2 (slow "<2 4>") $ sometimes (fast 2) $ n "b'm
 d3 $ every 4 (0.25 <~)$ n ("b'minor11 [0,4,7,11]") # sound "superpiano"
 # octave "5 4 <5 6>"
 # sustain 2
--- # vowel "u i u"
 # gain 0.85
--- # lpf 1000
 # lpf (range 75 750 $ slow 4 sine)
 # lpq 0.2
 
 unsolo 3
 
-d3 silence
+d1 silence
 
 d9 $ someCycles (jux rev)
 -- $ every 2 (# octave "3 2")
-$ fast 2 $ n "b'm c d d" # sound "superpiano"
+$ every 2 (iter 4) $ fast 2 $ n "b'm c d d" # sound "superpiano"
 # room 0.3
--- # vowel "u"
-# lpf 900
--- # gain 1.1
+# djf 0.45
+# gain (range 1 0.7 sine)
+# gain 0.6
 
 -- pop / clubkick
 -- $ striate 2
-d4 $ sometimes (jux rev) $ fast 2 $ n "0 0 <1 1*2> [0 1 3 4 5 6]/3"
-# sound "clubkick <clubkick soskick>"
-# lpf 1200
+d6 $ sometimes (jux rev) $ fast 2 $ n "0 0 <1 1*2> [0 1 3 4 5 6]/3"
+# sound "clubkick <popkick:3 soskick>"
+-- # lpf 1200
 
-d4 silence
+d6 silence
 
 -- Heavy // bass 2
-d5 $ brak $ every 2 (scramble 4) $ iter 2 $ n "0 0 0 [0 1 3 4 5 6]/3"
-# sound "superclap"
-# gain 1.1
-
-d6 $ every 4 (jux rev) $ scramble 2 $ iter 2 $ n "0 0 0 [0 1 3 4 5 6]/3"
-# sound "bassfoo"
--- # gain 1.1
+d7 $ brak $ every 2 (scramble 4) $ iter 2 $ n "0 0 0 [0 1 3 4 5 6]/3"
+# sound "superhat <clap superclap>"
+-- # gain 1.2
 
 d15 $ sometimes (slow 2) $ every 3 (jux rev) $ striate 2 $ n "[0 .. 7]"
 # sound "amencutup"
 # gain "1.2 1.5"
--- # squiz "0..2"
+# squiz "0..2"
 -- # gain "1.2"
-# hpf 500
 
-d16 $ splice 2 20 $ every 3 (jux rev)
+d16 $ qtrigger $ splice 2 20 $ every 3 (jux rev)
 $ sound "sk-breaks:8"
 # gain "1.2"
 -- # squiz "0..2"
 # lpf 1000
 
-unsolo 16
+d16 silence
 
 d13 $ splice 2 10 $ every 3 (jux rev)
 $ sound "breaksss:14"
-# gain "1.4 1.5"
+# gain "1.4"
 -- # squiz "0..2"
 
 -- FAST
 d14 $ splice 2 10 $ every 3 (jux rev)
 $ sound "amen_breaks:11"
-# gain "1.4 1.5"
--- # squiz "0..2"
+# gain "1.2"
+-- # squiz "0..2"#
+
+d14 silence
 
 -- 14? 28?
-d15 $ splice 2 10 $ every 3 (jux rev)
+d15 $ splice 2 10 $ every 3 (jux rev) $ every 2 (scramble 4)
 $ sound "amen_breaks:28"
 -- # gain "1.4 1.5"
 -- # squiz "0..2"
 
-d15 silence
 
-d7 $ iter 2 $ n "[0 .. 3]~ 0*2 3" # sound "juno"
--- # hpf 500
--- # gain 1.1
-
-d1 silence
-
-c'maj e'min // d b
-
--- after a while # superchip supertron
 -- $ chunk 4 (|- note 5)
 -- $ degradeBy "<0.2 0.5 0.7>"
-d11 $ qtrigger $ layer [id, jux rev, slow 2, striate 2]
--- $ iter 2 $ chunk 4 (|- note 5) $ n (arpg "<d b>[5,7,8,5]")
-$ iter 2 $ off 0.25 (|+|5) $ chunk 4 (|- note 5) $ n (arp "diverge" "[d5,d7,a'min8,a'min5]")
+d11 $ qtrigger $ layer [id, jux rev, slow 2, striate 4]
+-- $ iter 2 $ chunk 4 (|- note 5) $ n (arpg "<a'min c'maj> bf'maj")
+$ every 2 (slow 2) $ iter 2 $ off 0.25 (|+|5) $ chunk 4 (|- note 5) $ n (arp "diverge" "[d5,d7,a'min8,a'min5]")
 # sound "<rhodes>"
 # gain (range 0.85 0.7 $ slow 4 sine)
 # octave "4 5 4"
@@ -191,7 +134,7 @@ $ iter 2 $ off 0.25 (|+|5) $ chunk 4 (|- note 5) $ n (arp "diverge" "[d5,d7,a'mi
 
 unsolo 11
 
-d11 silence
+d4 silence
 
 -- mutelist = mapM_ mute
 --

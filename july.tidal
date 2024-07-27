@@ -6,6 +6,12 @@ d3 $ chop 2 $ sound "church-bells"
 
 unsolo 3
 
+d2 silence
+
+d4 $ striate "<2 4>" $ sometimes (scramble 4) $ n (off 0.25 (+12) $ off 0.125 (+7) $ fast 2 "bf'maj7 f'maj7") # sound "dbl-bass"
+# gain 0.8
+# octave 6
+
 -- striate > chop
 d2
 -- $ loopAt 2
@@ -22,7 +28,7 @@ d3 $ striate 4 $ sound "crow*4"
 -- d4  $ chunk 4 (|- note 5) $ n "c'm" # sound "dbl-bass"
 -- -- # gain 1.1
 
-d3 silence
+d2 silence
 
 -- $ n "16 11[12..~ <8 9>]15"
 
