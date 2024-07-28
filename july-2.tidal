@@ -96,7 +96,7 @@ $ sound "sk-breaks:8"
 -- # squiz "0..2"
 # lpf 1000
 
-d16 silence
+d15 silence
 
 d13 $ splice 2 10 $ every 3 (jux rev)
 $ sound "breaksss:14"
@@ -107,7 +107,7 @@ $ sound "breaksss:14"
 d14 $ splice 2 10 $ every 3 (jux rev)
 $ sound "amen_breaks:11"
 # gain "1.2"
--- # squiz "0..2"#
+-- # squiz "0..2"
 
 d14 silence
 

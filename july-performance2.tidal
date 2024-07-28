@@ -1,0 +1,56 @@
+setcps 0.6
+
+
+d4 $ jux rev $ loopAt 4 $ chop "32" $ sound "orchestra"
+# gain 1.2
+# lpf 400
+# speed 0.6
+
+
+d6 $ jux rev $ loopAt 4 $ chop "16 32" $ sound "orchestra"
+# hpf 1000
+# speed 0.2
+# gain 0.4
+
+
+d5 $ sometimes (jux rev) $ slice "20" "0 .. [5 10]" $ sound "orchestra"
+# gain (range 0.4 1.05 sine)
+# speed 1.5
+# gain 0.4
+
+d6 silence
+
+///////////////////////////
+
+
+d15 $ sometimes (slow 2) $ every 3 (jux rev) $ striate 2 $ n "[0 .. 7]"
+# sound "amencutup"
+# gain "1.2 1.4"
+# squiz "0..2"
+-- # gain "1.2"
+
+d16 $ qtrigger $ splice 2 20 $ every 3 (jux rev)
+$ sound "sk-breaks:8"
+# gain "1.2"
+-- # squiz "0..2"
+# lpf 1000
+
+d13 $ splice 2 10 $ every 3 (jux rev)
+$ sound "breaksss:14"
+# gain "1.4"
+# squiz "0..2"
+
+-- !!!!!!FAST
+d14 $ splice 2 10 $ every 3 (jux rev)
+$ sound "amen_breaks:11"
+# gain "1.3"
+# squiz "0..2"
+-- # lpf 10000
+
+d14 silence
+
+-- 14? 28?
+d12 $ splice 2 10 $ every 3 (jux rev)$ every 3 (scramble 2) $ every 2 (scramble 4)
+$ sound "amen_breaks:28"
+-- # gain "1.4 1.5"
+-- # squiz "0..2"
