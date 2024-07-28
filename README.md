@@ -18,7 +18,7 @@ One 'track' per month.
 |April|playing with one sample|<https://youtu.be/_IyHHRxLPkM>|
 |May|clip of what I played at algorave 4/6 (but worked on throughout May)|<https://youtu.be/2la0gsX5JhY>|
 |June|recording of a version of the set I played at Corsica Studios 26/06/24|<https://soundcloud.com/mahalias/corsica-260624>|
-|July||
+|July|prep for kaos magi set| <https://youtu.be/qgtz9bNQO2g> also this <https://on.soundcloud.com/rZBGx8zYudzc6s1K6>|
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?
@@ -33,31 +33,3 @@ explore using custom functions
 **New Random Ideas**
 
 Traffic Jam sounds
-
-**Possible Constraints:**
-
-Single Sound Source: Create an entire track using variations of a single sound or sample.
-
-Monophonic Composition: Use only one note at a time throughout the track, avoiding chords and harmonies.
-
-~Reverse Sounds: Utilise backward sounds or melodies to create a unique texture.~
-
-No Percussion: Build a track without any traditional percussive elements, focusing on melody and harmony.
-
-Ambient Only: Create a track that is entirely ambient, focusing on mood and atmosphere rather than rhythm and melody.
-
-Fixed BPM: Stick to a predetermined beats-per-minute (BPM) that you don't usually work with.
-
-Imposed Narrative: Base your track on a pre-written story or poem, translating the narrative or emotions into music.
-
-Harmonic Constraints: Limit yourself to a specific chord progression or a set of chords for the entire piece.
-
-Field Recordings: Incorporate field recordings, whether natural sounds, cityscapes, or household noises.
-
-Human Voice Only: Use only the human voice (yours or samples) as the sound source for your track.
-
-Remix Challenge: Take one of your older tracks and remix it under a new constraint (did for January)
-
-Spatial Constraints: Experiment with the stereo field, perhaps confining sounds to only left, right, or centre channels.
-
-Texture Focus: Focus on creating a track with a specific texture, like smooth, gritty, or granular sounds.
