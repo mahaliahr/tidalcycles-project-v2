@@ -1,0 +1,62 @@
+d1 $ striate 4 $ sound "ade" # amp (sometimes (scramble 2)"<0.4 0.8 0.2>")
+# gain "0.85"
+# pan "0.2 0.5 0.9"
+
+-- ade:5 >> ade:3 (transition)
+d2 $ sometimes (jux rev) $ striate 4 $ sound "ade:5 ade:3"
+-- # gain "0.9"
+# gain (range 0.8 0.5 $ slow 2 sine)
+
+d3 $ every 4 (jux rev) $ striate "4 8" $ sound "ade:1"
+# gain "0.95"
+
+-- eerieeeee
+d4 $ spread ($) [density 2, rev, slow 2, striate 3, (# speed "0.8")] $ sound "ade"
+# vowel "a"
+# octave "<5 6>"
+# gain "0.6 0.75"
+
+-- ade:6 >> ade
+d5 $ someCycles (jux rev) $ every 2 (fast 2) $ striate 8 $ sound "<ade>"
+# octave "<3 5>"
+# gain "<0.5 0.6 0.7>"
+
+d1 silence
+
+
+
+
+
+
+-- //////////////////////////
+
+-- kick >> kurt
+-- $ striate "2 4"
+d10 $ striate "2 4" $ someCycles (jux rev) $ n "[1*4]*<2 4>" # sound "kick"
+# gain "0.7 0.85"
+
+-- bskick// odx
+d6 $ qtrigger $ someCycles (jux rev) $ spread ($)[striate 2,rev] $ n "[<2 2*2> ~ [3*4]*2 ~]"
+# sound "<kicklinn bskick>"
+# room 0.15
+# sz 0.5
+-- # octave "5 4"
+# gain "0.75"
+
+d9 silence
+
+-- percussive sprinkle
+d7 $ someCycles (scramble 2) $ every 4 (fast 2) $ spreadChoose ($) [gap 2, striate 2] $ every 2 (rev) $ n "5 0 ~ [0 2*4]"
+# sound "<east:1*2 east:2 east:3>"
+# squiz "1 2 3"
+# lpf (range 500 1500 sine)
+-- # gain "0.75 0.85"
+# lpq 0.15
+
+
+d9 $ stack [
+every 2 (jux rev) $ every 2 (hurry "<2 4>") $ n "4 <4*2 ~> <4 4*2> 4",
+every 2 rev $ every 2 (fast 2) $ n "4 <4*2 ~> <4 4*2> 4"]
+# gain "0.95"
+# sound "clubkick:1 <hi clubkick>"
+# speed "1 2 1.5"

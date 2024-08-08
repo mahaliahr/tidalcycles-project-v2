@@ -1,0 +1,157 @@
+-- ease in
+d13 $ striate "2 4" $ echo 4 0.2 0.75 $ sometimes(jux rev) $ n "c'sus2"
+# sound "supervibe"
+# legato 5
+# room 0.35
+-- # gain 0.8
+# gain (range 0.2 0.7 $ slow 2 sine)
+# octave "4"
+
+
+d1 $ every 2 (scramble 2)
+$ splice 8 10 $ sound "choir"
+# gain "1.1 1.2"
+-- # distort "0.2 0.3"
+# lpf (range 500 1000 sine)
+-- # octave "5 3"
+# speed "1 0.8 0.6"
+
+d1
+$ slow 2 $ someCycles (jux rev) $ sometimes(iter "<2 4>") $ every 2 (scramble "<2 4>")
+-- $ slice 8 10
+$ loopAt 4 $ chop 64
+-- $ every 4 (# speed 1.2)
+$ sound "<bsvocals:1>"
+# gain "1.1 1.2"
+-- # gain 1.05
+-- # distort "0.2 0.3"
+# djf (range 0.25 0.8 sine)
+-- # hpf (range 500 1000 sine)
+-- # octave "3"
+-- # speed "1.2"
+
+
+d1 $ stack [
+    qtrigger $ every 2 (scramble 2) $ splice 8 10 $ sound "choir"
+    # gain "1.1 1.2"
+    -- # distort "0.2 0.3"
+    # lpf (range 500 1000 sine)
+    -- # octave "3"
+    # speed "1 0.8 0.6",
+    slow 2 $ someCycles (jux rev) $ sometimes(iter "<2 4>") $ every 2 (scramble "<2 4>")
+    -- $ slice 8 10
+    $ loopAt 4 $ chop 64
+    -- $ every 4 (# speed 1.2)
+    $ sound "<bsvocals:1 bsvocals:4>"
+    # gain "1.1 1.2"
+    # gain 1.25
+    # room 0.5
+    # distort "0.2 0.3"
+    # djf (range 0.25 0.8 sine)
+    -- # hpf (range 500 1000 sine)
+    -- # speed "1.2"
+    ]
+
+d1 $ loopAt 2 $ chop 32 $ slow 2 $ sound "cyborg:19"
+# gain "1.3"
+-- # speed 0.5
+# lpf (range 500 1000 sine)
+
+
+
+d8 $ iter 2 $ n "[0 .. 3]0*2" # sound "juno"
+# gain "0.8 0.9"
+-- # speed (range 0.5 1 slow $ sine)
+
+-- ///////////////
+
+
+d8 silence
+
+
+d3 $ splice 2 20 $ every 3 (jux rev) $ sound "breaksss"
+-- # gain 1.1
+-- # gain "1.4 1.6"
+-- # squiz "0..2"
+
+unsolo 3
+
+/////
+
+d1 $ splice 2 8 $ sound "sk-breaks"
+# gain 1.1
+
+d2 $ splice 4 8 $ sound "155bpm:19"
+# gain 1.1
+-- # hpf 1000
+
+unsolo 2
+
+d4  $ splice 2 8 $ sound "amen_breaks"
+-- # gain 1.2
+-- # squiz "0..2"
+
+//////
+
+-- $ off 0.2(+5)
+-- $ chunk 4 (|+| note "5 -5")
+d13 $ chunk 4 (|+| note "5 -5") $ sometimes(jux rev) $ n "c'sus2 ~"
+# sound "supervibe"
+# legato 5
+# sustain 3
+# room 0.35
+# gain (range 0.4 0.7 $ slow 2 sine)
+# octave "4 3"
+
+-- $ degradeBy (range 0.25 0.75 sine)
+d14 $ striate "2 4 8" $ sometimes(jux rev) $ n "<f'm g'm ~> c'sus4"
+# sound "supervibe"
+# legato 5
+# distort (range 0.2 0.5 $ slow 2 sine) -- MORE
+# gain "0.75"
+# octave "4 5"
+
+-- $ degradeBy
+d15 $ degradeBy "0.25 0.5 0.75" $ layer [id, slow 2, jux rev] $ striate "<4 2>" $ n "0 .. 3"
+# sound "superfm"
+# octave "3 2"
+# gain 0.85
+-- # distort "0.2 0.3 0.5"
+
+d16 $ striate 4 $ echo 4 0.2 0.75 $ arp "diverge" $ n "c'sus2"
+# sound "cs80lead"
+# lpf 1000
+# legato 5
+# distort (range 0.2 0.8 sine) -- MORE
+# gain (range 0.75 0.8 sine)
+-- # octave "7 8"
+
+
+-- d5 BEFORE this + level adjust
+/////////////////////
+-- MUTE ALL PERC
+
+mutelist = mapM_ mute
+
+mutelist [1,2,3,4,6,7,8,9,10]
+
+d13 silence
+
+unmutelist = mapM_ unmute
+--
+
+unmutelist [1,2,3,4,6,7,8,9,10]
+
+
+//////////////////////
+
+
+(range 2 10 $ slow sine)
+
+d1 $ slow 2 $
+  n (off 0.25 (+12) $ off 0.125 (+7) $ slow 2 "c(3,8) a(3,8,2) f(3,8) e(3,8,4)")
+  # sound "superpiano"
+
+d14 silence
+
+to the current stream over 4 cycles. Effectively this is a fade out
