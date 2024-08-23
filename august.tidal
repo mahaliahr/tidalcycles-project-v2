@@ -18,21 +18,22 @@ d5 $ sometimes (jux rev)$ sometimes (striate 4) $ every 3 (# speed 0.45) $ splic
 # gain 0.85
 # speed 0.05
 
-d silence
+d4 silence
 
 //////////////////////////
 
-d7 $ every 2 (scramble 4) $ every 4 (jux rev) $ every 4 (0.25 <~) $ chunk 4 (|- note 5) $ n (arp "updown" "a'min c'maj7")
+d7 $ slow 4 $ every 2 (scramble 4) $ every 4 (jux rev) $ every 4 (0.25 <~) $ chunk 4 (|- note 5) $ n (arp "updown" "a'min c'maj7")
 # sound "sinosc"
 # octave 4
 -- # octave 6
-# sustain 0.8
+-- # sustain 0.8
+# sustain 3
 # gain (range 0.75 1 $ slow 4 sine)
 
 d9 $ n "a'min" # sound "superfm"
 # octave 3
 # sustain 5
-# gain 0.65
+# gain 0.75
 # voice "<2 0 3>"
 
 d8  $ striate 2 $ chunk 4 (|- note 5) $ sometimes (jux rev) $ arp "pinkyup" $ n "c'maj7"
@@ -43,7 +44,7 @@ d8  $ striate 2 $ chunk 4 (|- note 5) $ sometimes (jux rev) $ arp "pinkyup" $ n 
     # gain 0.8
     # octave "5 4"
 
-    d10 silence
+d10 silence
 
 d1  $ every 2 (fast 2) $ chunk 4 (|- note "5 10")$ jux rev $ arp "<pinkyup> " $ n "<c'maj ~ a'min>"
     # sound "sinosc"
@@ -77,8 +78,8 @@ d2  $ sometimes (jux rev) $ sometimes (slow 2) $ arp "pinkyup" $ n "a'min c'maj 
 
 d1 $ layer [id, jux rev, slow 4, striate 2]
 $ every 4 (jux rev) $ every 2 (scramble 4)
-$ every 4 (0.25 <~) $ every 2 (iter "<2 4>")
-$ n "26 22[28..~ <23 40>]38" # sound "vox-slice"
+$ every 4 (0.25 <~) $ every 2 (iter "<2 4>") $ every 2 (striate 2) $ rarely (jux rev)
+$ n "<[26 22[28..~ <23 40>]38] [[28..~ <23 16>]26] [16 11[12..~ <8 9>]15]>" # sound "vox-slice"
 # hpf 750
 # room 0.9
 # sz 0.95
@@ -86,7 +87,7 @@ $ n "26 22[28..~ <23 40>]38" # sound "vox-slice"
 # hpq (range 0.3 0.5 sine)
 -- # speed 0.5
 
-d3 silence
+d1 silence
 
 d2
 -- $ loopAt 2
