@@ -1,32 +1,45 @@
 setcps 0.6
 
+d4
+-- $ slow 4 $ sometimes (hurry 2) $ rarely (jux rev)
+$ slice "4" "0 1 2 3"
+-- $ jux rev $ loopAt 4 $ chop "32"
+$ sound "ice-cream"
+# gain 1.25
+# lpf (range 1000 400 $ slow 2 sine)
+-- # lpq (range 0.1 0.3 $ slow 6 sine)
+-- # speed 0.6
+
+unsolo 4
 
 d4 $ jux rev $ loopAt 4 $ chop "32" $ sound "orchestra"
 # gain 1.2
 # lpf 400
 # speed 0.6
 
+d6 silence
 
 d6 $ jux rev $ loopAt 4 $ chop "16 32" $ sound "orchestra"
 # hpf 1000
 # speed 0.2
 # gain 0.95
 
-d5 $ sometimes (jux rev)$ sometimes (striate 4) $ every 3 (# speed 0.45) $ splice "20" "0 .. [5 10]"
-$ sound "orchestra"
+d5 $ sometimes (jux rev)$ sometimes (striate 4) $ every 3 (# speed 0.45) $ splice "20" "0 .. [5 10]" $ sound "orchestra"
 -- # gain (range 0.4 1.05 sine)
 -- # speed 1.5
 # gain 0.85
 # speed 0.05
 
-d5 silence
+d7 silence
 
 //////////////////////////
 
-d7 $ slow 4 $ striate 4 $ every 2 (scramble 4) $ every 4 (jux rev) $ every 4 (0.25 <~) $ chunk 4 (|- note 5)
-$ n (arp "updown diverge" "a'min c'maj7")
+d7 $ slow 4 $ every 2 (scramble 4) $ every 4 (jux rev) $ every 4 (0.25 <~)
+$ chunk 4 (|- note 5)
+$ n (arp "updown" "a'min <c'maj7 e'min> e'maj")
+-- $ n (arp "<updown up>" "a'min c'maj e'min e'maj")
 # sound "sinosc"
-# octave 3
+# octave 4
 -- # octave 6
 -- # sustain 0.8
 # sustain 3
@@ -39,38 +52,41 @@ d9 $ n "a'min" # sound "superfm"
 # voice "<2 0 3>"
 
 d8  $ striate 2 $ chunk 4 (|- note 5) $ sometimes (jux rev) $ arp "pinkyup" $ n "c'maj7"
-    # sound "sinosc"
-    # sustain 0.8
-    # room 0.3
-    # pan rand
-    # gain 0.8
-    # octave "5 4"
+# sound "sinosc"
+# sustain 0.8
+# room 0.3
+# pan rand
+# gain 0.8
+# octave "5 4"
 
-d9 silence
+d10 silence
 
 d1  $ every 2 (fast 2) $ chunk 4 (|- note "5 10")$ jux rev $ arp "<pinkyup> " $ n "<c'maj ~ a'min>"
-    # sound "sinosc"
-    # room 0.3
-    # pan rand
-    -- # gain 0.7
-    # sz 0.9
-    # sustain 0.8
+# sound "sinosc"
+# room 0.3
+# pan rand
+-- # gain 0.7
+# sz 0.9
+# sustain 0.8
 
 d10 $ chunk 4 (|- note 5) $ jux rev $ arp "pinkyup" $ n "f'maj <c'maj ~ a'min>"
-    # sound "sinosc"
-    # room 0.3
-    # pan rand
-    # gain "0.8"
-    # sz 0.9
-    # octave "4 5"
+# sound "sinosc"
+# room 0.3
+# pan rand
+# gain "0.8"
+# sz 0.9
+# octave "4 5"
 
+-- a'min c'maj e'min e'maj
 -- $ sometimes (jux rev)
-d2  $ sometimes (jux rev) $ sometimes (slow 2) $ arp "pinkyup" $ n "a'min c'maj f'maj <a'min d'min>"
-    # sound "superpiano"
-    # sustain 0.8
-    # room 0.25
-    -- # gain "0.5 0.7 0.8"
-    -- # octave "4 3 5"
+d2 $ every 2 (slow 2) $ sometimes (jux rev) $ sometimes (slow 2) $ arp "pinkyup"
+$ n "a'min c'maj e'min <f'maj e'maj>"
+-- $ n "a'min c'maj f'maj <a'min d'min>"
+# sound "superfork"
+# sustain 0.8
+# room 0.25
+-- # gain "0.5 0.7 0.8"
+-- # octave "4 3 5"
 
 ////////////////////////////
 
@@ -79,15 +95,15 @@ d2  $ sometimes (jux rev) $ sometimes (slow 2) $ arp "pinkyup" $ n "a'min c'maj 
 -- > start quietly
 
 d1 $ layer [id, jux rev, slow 4, striate 2]
-$ every 4 (jux rev) $ every 2 (scramble "<2 4>")$ every 4 (hurry 2)
+$ every 4 (jux rev) $ every 2 (scramble 4)
 $ every 4 (0.25 <~) $ every 2 (iter "<2 4>") $ every 2 (striate 2) $ rarely (jux rev)
-$ n "<[<32 26> 22[28..~ <23 40>]38] [[<20 28>..~ <23 16>]26] [16 <11 8>[12..~ <8 9>]15] >" # sound "vox-slice"
+$ n "<[26 22[28.. ~ <23 40>]38]>" # sound "vox-slice"
 # hpf 750
 # room 0.9
 # sz 0.95
 # gain (range 0.1 0.45 $ slow 4 sine)
 # hpq (range 0.3 0.5 sine)
-# speed 0.5
+-- # speed 0.5
 
 d1 silence
 
@@ -98,10 +114,10 @@ $ sometimes (jux rev) $ chop 32 $ sound "[birds birds:4] [birds:1 birds:2] birds
 # lpf 500
 # lpq (range 0.3 0.8 sine)
 # speed "<0.8 0.6>"
-# gain (range 0.85 1.2 $ slow 2 sine)
--- # gain 1.3
+-- # gain (range 1 1.2 $ slow 2 sine)
+# gain 1.3
 
-d2
+d3
 -- $ loopAt 2
 -- $ sometimes (striate "4 8")
 $ fast 2 $ sometimes (jux rev)
@@ -113,12 +129,12 @@ $ sound "[birds3 birds3] [birds3 birds3] birds3 birds3"
 -- # gain (range 1 1.2 $ slow 2 sine)
 # gain 1.3
 
-d2 silence
+d11 silence
 
-d3 $ loopAt 4 $ chop 32 $ sound "church-bells"
+d5 $ loopAt 4 $ chop 32 $ sound "church-bells"
 -- # crush 5
 # speed 1.5
-# gain 1.05
+# gain 1.25
 # djf 0.4
 
 d11 $ stack [
@@ -128,3 +144,5 @@ loopAt 2 $ chop 32 $ sound "<cyborg:5 cyborg:9>"
 # lpf (range 500 1000 sine),
 every 2 (fast 2) $ every 2 (jux rev) $ n "[0..5] 6 4 2 " # sound "ab2"
 ]
+
+hush
