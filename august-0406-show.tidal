@@ -33,7 +33,7 @@ d4 silence
 
 -- kick >> kurt
 -- $ every 2 (striate "2 4")
-d10 $ qtrigger $ striate "2 4" $ someCycles (jux rev) $ n "[1*4]*<2 4>" # sound "kurt"
+d10 $ qtrigger $ someCycles (jux rev) $ n "[1*4]*<2 4>" # sound "kick"
 # gain "0.75 0.85"
 -- # hpf 150
 
@@ -65,5 +65,5 @@ d9 $ qtrigger $ stack [
 every 2 (jux rev) $ every 2 (hurry "<2 4>") $ n "4 <4*2 ~> <4 4*2> 4",
 every 2 rev $ every 2 (fast 2) $ n "4 <4*2 ~> <4 4*2> 4"]
 # gain "0.95"
-# sound "hardkick:1 <hi hardkick>"
+# sound "clubkick:1 <hi clubkick>"
 # speed "1 2 1.5"
