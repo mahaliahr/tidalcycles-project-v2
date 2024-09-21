@@ -11,6 +11,11 @@ $ sound "ice-cream"
 # speed 1.2
 # djf 0.7
 
+  >>>   d4 $ slice "<8>" 8 $ sound "celestial-vox"
+# octave "3"
+-- # gain 1.15
+-- # gain 1.2
+
 -- d3 $ slice 1 4 $ sound "dist:12"
 
 d3 $ sometimes (jux rev) $ splice 4 "0 1 2 3 4 <2 3 1> 4 3"

@@ -1,0 +1,144 @@
+-- $ n "16 11[12..~ <8 9>]15" /// [28..~ <23 16>]26
+
+-- > start quietly
+
+d2 $ layer [id, jux rev, slow 4, striate 2]
+$ every 4 (jux rev) $ every 2 (scramble 2)
+$ every 4 (0.25 <~)
+$ n "[28..~ <23 16>]26" # sound "vox-slice"
+# hpf 750
+# room 0.9
+# sz 0.95
+# gain (range 0.1 0.45 $ slow 4 sine)
+# hpq (range 0.3 0.5 sine)
+# speed 0.5
+
+///////////////////
+
+-- $ chunk 4 (|- note 5)
+-- $ degradeBy "<0.2 0.5 0.7>"
+d6 $ qtrigger $ layer [id, jux rev, slow 2, striate 4]
+-- $ iter 2 $ chunk 4 (|- note 5) $ n (arpg "<a'min c'maj> bf'maj")
+$ every 2 (slow 2) $ iter 2 $ off 0.25 (|+|5) $ chunk 4 (|- note 5) $ n (arp "diverge" "[d5,d7,a'min8,a'min5]")
+# sound "<rhodes>"
+# gain (range 0.5 0.6 $ slow 4 sine)
+# octave "4 5 4"
+-- # octave "5 6"
+-- # vowel "e"
+# lpf (range 100 500 $ slow 4 sine)
+# lpq (range 0.2 0.5 sine)-- range on this
+# gain 0.4
+
+d6 silence
+
+-- $ striate "2 3 4" b'm c d a
+
+d7 $ someCycles (jux rev)
+-- $ every 2 (# octave "3 2")
+$ every 2 (iter 4) $ fast 2 $ n "b'm c d d" # sound "superpiano"
+# room 0.3
+# djf 0.45
+# gain (range 01 0.7 sine)
+# gain 0.7
+
+d7 silence
+
+d8 $ qtrigger $ every 4 (0.25 <~) $ every 4 (fast 2) $ every 2 (# octave 7)
+$ n (arp "converge" "d[0,4,7,11]") # sound "superpiano"
+# octave "6 5"
+# sustain "1.5 3"
+# pan "0.3 0.8 1 0.2"
+# gain "0.5"
+# lpf 5000
+
+
+d9 $ someCycles (jux rev) $ every 2 (slow "< 2 4>") $ sometimes (fast 2) $ n "b'm c d a" # sound "rhodes"
+# sustain 1.2
+# octave "5 6"
+# gain 0.6
+# hpf (range 1000 100 $ slow 4 sine)
+# hpq (range 0.2 0.4 $ fast 2 sine)
+-- # hpq 0.3
+
+d10 silence
+
+hush
+
+
+-- $ striate "<2 4>" // rhodes?
+d11 $ every 4 (0.25 <~)$ n ("b'minor11 [0,4,7,11]") # sound "superpiano"
+# octave "5 4 <5 6>"
+# sustain 2
+# gain 0.75
+# lpf (range 75 750 $ slow 4 sine)
+# lpq 0.2
+
+d10 $ qtrigger $ every 4 (0.25 <~) $ chunk 4 (|- note "5") $ n ("d[0,4,7,11]")
+# sound "superpiano"
+# octave "4 3"
+# sustain "1.5 3 5"
+# lpf 1000
+# gain 0.75
+
+
+d4 $ jux rev $ loopAt 4 $ chop "32" $ sound "orchestra"
+# gain 1.2
+# lpf 400
+# speed 0.6
+
+
+d6 $ jux rev $ loopAt 4 $ chop "16 32" $ sound "orchestra"
+# hpf 1000
+# speed 0.2
+# gain 0.4
+
+
+d5 $ sometimes (jux rev) $ slice "20" "0 .. [5 10]" $ sound "orchestra"
+# gain (range 0.4 1.05 sine)
+# speed 1.5
+# gain 0.4
+
+d6 silence
+
+
+/////////////////////////////////#
+
+
+-- transition
+d5 $ striate "2 4" $ chop 4 $ sound "pad:5"
+-- # crush 5
+-- # speed 0.4
+# gain 0.8
+
+
+-- phase 2
+-- $ striate 2 // $ chop "<3 6>"
+d3 $ striate 2 $ every 2 (# speed 1.5) $ every 2 (slow 2) $ slow 2 $ sometimes(fast 2)
+$ sound "[vox-slice:10 vox-slice:1]*2 vox-slice:2 vox-slice:9 vox-slice:2"
+# lpf 1000
+# room 0.5
+# sz 0.95
+# gain 0.8
+-- # speed "<1 1.15>"
+-- # speed "2 3 2"
+
+d15 silence
+
+-- $ striate "2"
+d15 $ chunk 4 (|+| note "5 7") $ sometimes (jux rev) $ n ("c'm[0 2*2 5<2 5 0 7>]")
+# sound "[bass8, flbass]"
+# octave 5
+# gain "0.9 1"
+-- # legato 2
+
+d13 $ chunk 4 (|+| note "5 7") $ sometimes (jux rev) $ n ("c'm[0 2*2 5<2 5 0 7>]")
+# sound "rash"
+# octave "5 6"
+# gain (range 0.95 1 sine)
+
+-- $ every 4 (0.25 <~)
+d12 $ striate 4 $ sometimes (jux rev) $ n "c'm7*4"
+# sound "flbass"
+# legato 2
+# gain "0.75"
+# octave "4"
