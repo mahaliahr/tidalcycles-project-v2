@@ -1,0 +1,18 @@
+d1  $ s "omi" <| note "a [~ g] [c b] [g gs]"
+    # octave "<3 4 5 6 7 8>"
+    # sustain "{1 2 1}%8"
+
+d2  $ s "braids" <| note "a [~ g] [c b] [g gs]"
+    # octave "<3 4 5 6 7 8>"
+    # sustain "{1 2 1}%8"
+
+d2 silence
+
+d1  $ s "plaits" <| note "a [~ g] [c b] [g gs]"
+    # octave "<3 4 5 6 7 8>"
+    # sustain "{1 2 1}%8"
+
+    d1  $ s "tides" <| note "a [~ g] [c b] [g gs]"
+        # octave "<3 4 5 6 7 8>"
+        # sustain "{1 2 1}%8"
+        -- # mode "<0 1 2 3>"
