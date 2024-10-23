@@ -1,0 +1,12 @@
+d2 $ splice 2 8 $ sound "breaksss:6"
+# gain 1.1
+
+d4  $ splice 2 8 $ sound "amen_breaks"
+-- # gain 1.2
+-- # squiz "0..2"
+
+
+d1 $ jux rev $ chunk 4 (fast 2 . (|- n 12)) $ off 0.25 (|+ 7)
+$ n (scale "prometheus" "0 .. 7") # sound "plaits"
+# gain 0.95
+-- # sustain 2
