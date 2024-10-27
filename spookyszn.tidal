@@ -9,28 +9,40 @@ setcps 0.6
 -- unmutelist [2, 10]
 
 
-
-
 d16 $ splice 2 20 $ n "1 [0 .. 3] 6 7"
 # sound "amen_breaks"
 -- # gain "1.4 1.6"
 # squiz "0..2"
 
-d15 $ stack [splice 2 8 $ sound "sk-breaks" # gain 1.1,
-every 3 (jux rev) $ splice 2 8 $ sound "<155bpm:19, amen_breaks:14*2 sk-breaks:3>" # gain 1.2]
-# gain 1.3
+d16 $ splice 2 20 $ n "1 [0 .. 3] 6 7"
+# sound "amen_breaks:14"
+# gain "1.4 1.6"
+-- # squiz "0..2"
 
-d14 $ every 2 (# speed 0.8) $ n "1 [0 .. 3] 6 7" # sound "kurt"
-# gain 1.5
-# speed (range 1 3 sine)
+d15 silence
 
-d14 $ every 2 (# speed 0.3) $ splice 2 8 $ n "1 [0 .. 3] 6 7" # sound "yearn"
+-- d15 $ stack [splice 2 8 $ sound "sk-breaks" # gain 1.1,
+-- every 3 (jux rev) $ splice 2 8 $ sound "<155bpm:19, amen_breaks:14*2 sk-breaks:3>" # gain 1.2]
+-- # gain 1.3
+
+d9 $ splice 10 "0..9" $ sound "break:17"
+# gain "1.25 1.35"
+-- # lpf "2000"
+
+d12 $ splice 2 10 $ every 3 (jux rev)$ every 3 (scramble 2) $ every 2 (scramble 4)
+$ sound "amen_breaks:33"
+
+-- d14 $ every 2 (# speed 0.8) $ n "1 [0 .. 3] 6 7" # sound "kurt"
 -- # gain 1.5
 -- # speed (range 1 3 sine)
-
-d14 $ splice 8 "0 ~ ~ <0 2> 4 6 ~ <7 3>" $ sound "yearn"
--- # gain 1.5
--- # speed (range 1 3 sine)
+--
+-- d14 $ every 2 (# speed 0.3) $ splice 2 8 $ n "1 [0 .. 3] 6 7" # sound "yearn"
+-- -- # gain 1.5
+-- -- # speed (range 1 3 sine)
+--
+-- d14 $ fast 2 $ splice 8 "0 ~ ~ <0 2> 4 6 ~ <7 3>" $ sound "yearn"
+-- -- # gain 1.5
+-- -- # speed (range 1 3 sine)
 
 d14 silence
 
@@ -40,34 +52,36 @@ d14 silence
 -- # gain 1.2
 
 -- euclid rhythm or no?
-d4 $ slow 2 $ every 2 (scramble 8) $ arp "thumbup" $ n "a'min(3,8)"
-# sound "tides"
+d4 $ every 3 (jux rev) $ slow 2 $ every 2 (scramble 8) $ arp "thumbup" $ n "a'min(3,8)"
+# sound "sinosc"
 -- # octave 3
 # gain 1.1
 
-d4 silence
-
-d4 $ fast 2 $ n "[0 2 <3 1>]*4[<0 1>,5 5]*2"
-# sound "gabor"
-# octave 6
-# gain 0.8
+-- d4 silence
+--
+-- d4 $ fast 2 $ n "[0 2 <3 1>]*4[<0 1>,5 5]*2"
+-- # sound "gabor"
+-- # octave 6
+-- # gain 0.8
 
 -- $ layer [id, slow 2, jux rev] $ striate "<4 2>" $ n "0 .. 3"
 -- # sound "superfm"
 -- # octave "3 2"
 
-d11 $ stack [ layer [id, slow 2, jux rev] $ chunk 4 (|+| note "<5>") $ striate "4" $ n "0 .. 3"
-# sound "superfm"
-# octave "3 2",
-every 2 (jux rev)
-$ every 2 (loopAt 2) $ chop 32
-$ sound "<breaks165:5 amen_breaks:8> rave:2*2"
-# lpf (range 10 1000 $ slow 4 sine) # room 0.2
-# sz 0.9 # gain 1.3 # squiz "0..2"]
+//////
 
-d11 $ layer [id, slow 2, jux rev] $ chunk 4 (|+| note "<5>") $ striate "4" $ n "0 .. 3"
-# sound "superfm"
-# octave "3 2"
+-- d11 $ stack [ layer [id, slow 2, jux rev] $ chunk 4 (|+| note "<5>") $ striate "4" $ n "0 .. 3"
+-- # sound "superfm"
+-- # octave "3 2",
+-- every 2 (jux rev)
+-- $ every 2 (loopAt 2) $ chop 32
+-- $ sound "<breaks165:5 amen_breaks:8> rave:2*2"
+-- # lpf (range 10 1000 $ slow 4 sine) # room 0.2
+-- # sz 0.9 # gain 1.3 # squiz "0..2"]
+--
+-- d11 $ layer [id, slow 2, jux rev] $ chunk 4 (|+| note "<5>") $ striate "4" $ n "0 .. 3"
+-- # sound "superfm"
+-- # octave "3 2"
 
 -- slice and splice
 d11 $ every 2 (jux rev)
@@ -79,8 +93,6 @@ $ sound "<breaks165:5 amen_breaks:8> rave:2*2"
 # gain 1.3
 # squiz "0..2"
 
-
-
 d11 $ slow 2 $ every 2 (rev) $ stack [every 2 (jux rev)
 $ every 2 (loopAt 2) $ chop 32
 $ sound "<breaks165:5 amen_breaks:8>",
@@ -91,7 +103,9 @@ sound "rave:2*2" # n "0..<3 5>"]
 # gain 1.3
 -- # squiz "0..2"
 
-d9 silence
+d11 silence
+
+////////
 
 -- ////////////////////////
 
@@ -102,7 +116,8 @@ d9 $ sound "jungbass(7,16,14)"
 # lpf (range 500 2000 sine)
 # gain "1.2"
 
-d5 $ every 4 (# speed (range 0.25 1 sine))
+d4
+$ slow 2 $ every 4 (# speed (range 0.25 1 sine))
 $ every 3 (scramble 8) $ every 4 rev
 $ every 3 (# pan "1 1.5 0.8 0.5")
 $ sound "glitch:5(9,16)"
@@ -112,9 +127,9 @@ $ sound "glitch:5(9,16)"
 -- $ every 2 (# crush "4 5 6")
 d1 $ sound "house(<5 7 9>, 16)" # pan "1 1.2"
 # gain "1 1.1"
--- # squiz "0..2"
+# squiz "0..2"
 
-d1 silence
+d5 silence
 
 -- bassssssss -- bassdm?
 d2 $ every 3 (fast 2) $ sound "bskick(3,8)" # n "0 .. 5"
@@ -128,11 +143,6 @@ d2 $ every 3 (fast 2) $ sound "bskick(3,8)" # n "0 .. 5"
 -- $ sound "future(7,16)"
 -- # gain 1.2
 
-
-d5 silence
-
-unsolo 5
-
 d3 $ scramble 4 $ every 3 (fast 2)
 $ sound "odx(3,8)" # n "<0 1 2 3>"
 -- # gain "1 1.5 1.8"
@@ -142,25 +152,16 @@ $ sound "odx(3,8)" # n "<0 1 2 3>"
 -- //////////////////////
 
 -- funky computer
-d8 $ every 4 (slow 4) $ stack [ every 2 (hurry 2) $ n "[3 ~ 1*3, 5 ~ 3*2 5]" # sound "casio"
+d4 $ every 4 (slow 4) $ stack [ every 2 (hurry 2) $ n "[3 ~ 1*3, 5 ~ 3*2 5]" # sound "casio"
 # speed "1 0.8 1.2" # gain "1" # octave "5..1",
 n "[3 ~ 1*3, 5 ~ 3*2 5]" # sound "glitch"
 # speed "1 0.8 1.2" # gain "1.2" # octave "5..1"]
 # xsdelay (range 1 8 sine)
-# gain 1.25
+-- # gain 1.25
 
-unsolo 8
+
 
 ?????
-
-d11 $ stack [
-loopAt 2 $ chop 32 $ sound "<cyborg:5 cyborg:9 casio:1>"
-# gain "1.3"
--- # speed 0.5
-# lpf (range 500 1000 sine),
-every 2 (fast 2) $ every 2 (jux rev) $ n "[0..5] 6 4 2 " # sound "ab2"
-]
-
 
 -- //////////////////////
 d13 $ striate "4" $ sometimes (jux rev) $ n "<<0 2> 5 7>"
@@ -173,12 +174,12 @@ d13 $ striate "4" $ sometimes (jux rev) $ n "<<0 2> 5 7>"
 
 d13 silence
 
-d14 $ every 3 (hurry 2) $ striate "2"
-$ chunk 4 (|-| note "<5>") $ sometimes (jux rev)
+d14 $ layer [id striate 4, slow 2] $ every 4 (0.25 <~) $ every 3 (hurry 2) $ striate "2"
+$ chunk 4 (|-| note "<5 10>") $ sometimes (jux rev)
 $ n "<2 5 7>"
 # sound "tides"
 # gain "1.1 1.3"
-# sustain 6
+# sustain (range 6 9 $ slow 2 sine)
 # gain 1.2
 # octave "<[5 4] [5 6]>"
 
@@ -186,5 +187,5 @@ d1 silence
 
 d1 $ jux rev $ chunk 4 (fast 2 . (|- n "12")) $ off 0.25 (|+ 7)
 $ n (scale "prometheus" "0 .. 7") # sound "plaits"
-# gain 0.95
+# gain 0.75
 -- # sustain 2
