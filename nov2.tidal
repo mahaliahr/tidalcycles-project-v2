@@ -1,0 +1,51 @@
+d5 $ loopAt 2 $ chop 4 $ sound "cyborg:1"
+
+d5 $ fast "4 <8 2>" $ chop 8 $ loopAt 2.5 $ sound "<guitars:3>"
+# speed 0.85
+
+d6 $ splice "<8 6 8>" 12 $ sound "guitars:4"
+
+
+d7
+-- $ splice 8 8
+$ sound "<newdrums>" # timescale (120/130)
+# gain 1.1
+
+unsolo 7
+
+
+
+
+hush
+
+setcps (130/60/4)
+
+d3 $ someCycles (jux rev) $ chop "8 4" $ every 3 (scramble 2) $ every 2 (iter "<2 4>")$ fast 2 $ sound "dbl-bass" # n "<0 1 2 3 4 5>"
+-- # gain "1 1.2 1.5"
+# distort 0.1
+-- # hpf 500
+
+d3 $ layer [id, jux rev] $ note "c e <ff g> bf g5" # sound "dbl-bass" # n "<0 1 2 3 4 5>"
+-- # gain "1 1.2 1.5"
+# distort 0.1
+-- # hpf 500
+
+d3 $ someCycles (chunk 8 (|- note 10)) $ layer [id, jux rev] $ note "c e <ff g> bf g5" # sound "dbl-bass" # n "[0|1|2|3|4|5]"
+-- # gain "1 1.2 1.5"
+# distort 0.1
+-- # hpf 500
+
+d1 $ loopAt 1 $ chop 2 $ sound "sk-breaks:7" # timescale (152/130)
+
+d1
+-- $ loopAt 1 $ chop 2
+$ sound "sk-breaks:7" # timescale (152/130)
+# gain 0.8
+
+
+
+d1 $ loopAt "20" $ chop 50 $ sound "tj-amen:1"
+
+d1 silence
+
+hush
