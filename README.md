@@ -21,6 +21,9 @@ One 'track' per month.
 |July|prep for kaos magi set| <https://youtu.be/qgtz9bNQO2g> also this <https://on.soundcloud.com/rZBGx8zYudzc6s1K6>|
 |August|sampling an ice cream van chime of greensleeves, definitely think I'll keep working on this as I'm into the dark, melancholy energy it's giving|<https://youtu.be/JU_gk-bOJiY>|
 |September|a scrappy remixing of earlier stuff, mashing lots of things together|<https://youtu.be/VbE_-eqx7kM>|
+| --- | --- | --- |
+| --- | --- | --- |
+| --- | --- | --- |
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?

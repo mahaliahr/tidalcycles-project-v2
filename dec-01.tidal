@@ -1,0 +1,122 @@
+hush
+
+-- $ striate 8 when slow
+d9 $ striate 8 $ splice "2 4 8" "0 .. 5" $ sound "pad:2"
+# gain "0.6 0.8"
+-- # gain 0.4
+
+
+d silence
+
+-- SLOW DOWN
+
+setcps 0.25
+
+-- 4. AI_I_CU
+
+d1 silence
+
+--------------------------------------------------------------------------------
+-- $ striate 2
+d1 $ iter 2 $ splice "25 .. 30" "0 .. 9" $ sound "[ai-voice:2]"
+-- d1 $ iter 2 $ splice "23..28" "0 .. 14" $ sound "ai-voice:5 ai-voice:2 " -- ai-voice:4
+# gain "1.2"
+# hpf 1000
+# distort (range 5 8 $ slow 2 sine)
+# speed (range 1 0.8 cosine)
+-- # crush "5 4.5"
+# scram "0 0.1 0.2"
+
+unsolo 1
+
+hush
+
+-- $ striate 4
+d2 $ striate 4 $ iter 2 $ every 4 (jux rev) $ sound "[alphabet:0*3 ~ alphabet:8 alphabet:8][alphabet:2 alphabet:20]"
+-- # speed "1 1.5 0.8"
+# gain "1.1"
+-- # gain " 0.9"
+# hpf 900
+# distort 0.4
+
+d4 silence
+--------------------------------------------------------------------------------
+
+-- splice 2 4 / fm 13
+d4 $ iter 4 $ striate "2 4" $ splice "2 4" "0 1 2 3 4 5 6 7" $ sound "fm:13"
+# room 0.9
+# lpf "1000 600 300"
+# sz 0.9
+-- # gain 0.75
+# speed 0.95
+
+d10 $ sometimes (jux rev) $ splice 4 "0 1 2 3 4 5 6 7" $ sound "dist:0 <dist:1 dist:8>"
+# gain "1 0.9 1"
+
+
+d15 silence
+
+d16 $ every 2 (iter 4) $ splice 8 "0..7" $ sound "break:3"
+# gain "1.4"
+
+-- Heavy
+d15 $ qt $ every 2 (hurry 2) $ every 2 (jux rev) $ sound "hardkick:4(5,16)"
+    -- # gain 0.9
+    # lpf "75"
+
+-- glitchhhhh
+
+-- $ striate 8
+d7 $ stack [jux rev $ n "0 2 ~ [4 2 2 3]"
+# sound "bassfoo <clubkick hardkick>" # distort 0.15 # gain 0.9,
+sometimes (jux rev) $ every 4 (fast 2) $ n "0 .. 15" # sound "glitch2"
+# gain "0.8 0.9"]
+
+-- $ sometimes (striate 8)
+d5 $ sometimes (jux rev) $ every 4 (fast 2) $ n "0 .. 15" # sound "glitch2"
+# gain "0.8 0.9"
+
+
+-- -- ??????????
+d3 $ sometimes (jux rev) $ every 3 (# speed 1.5) $  striate 4 $ slice 16 "0 .. 7" $ sound "juno:9"
+# lpf 600
+# octave "2 4 3 2 4"
+# gain 1.2
+
+d1 silence
+
+-- outro
+
+d13 $ striate 2 $ sometimes (jux rev) $ n "<2 5 7>"
+# sound "superfm"
+-- # distort 0.2 -- MORE
+-- # gain 0.8
+# octave "3 2"
+
+d10 $ striate 4 $ sometimes (jux rev) $ n "5 7 8 5"
+# sound "plaits"
+# sustain 1.5
+# distort 0.2 -- MORE
+-- # gain 1.2
+# octave "4 5 4"
+
+d11 $ layer [id, jux rev, fast 2, striate 4] $ n "5 7 8 5"
+# sound "plaits"
+# sustain 1.5
+# distort 0.3 -- MORE
+-- # gain 1.2
+# octave "4 5 4"
+-- # scram "0 0.1 0.2"
+
+d11 silence
+
+-- $ layer [id, jux rev, fast 2, striate 4]
+d3 $ layer [id, jux rev, fast 2, striate 4] $ sound "bd*16"
+# gain sine
+# distort 0.15
+
+d10 $ n"[1*12]*<2 4>" # sound "kick:4"
+# gain "0.6 0.8"
+# gain 1
+
+hush

@@ -3,12 +3,15 @@ d5 $ loopAt 2 $ chop 4 $ sound "cyborg:1"
 d5 $ fast "4 <8 2>" $ chop 8 $ loopAt 2.5 $ sound "<guitars:3>"
 # speed 0.85
 
+d5 $ note "c d e ~" # sound "<guitars:3 guitars>"
+
+
 d6 $ splice "<8 6 8>" 12 $ sound "guitars:4"
 
 
 d7
--- $ splice 8 8
-$ sound "<newdrums>" # timescale (120/130)
+$ splice 8 8
+$ sound "<newdrums>"
 # gain 1.1
 
 unsolo 7
