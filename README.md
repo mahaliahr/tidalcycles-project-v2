@@ -21,9 +21,9 @@ One 'track' per month.
 |July|prep for kaos magi set| <https://youtu.be/qgtz9bNQO2g> also this <https://on.soundcloud.com/rZBGx8zYudzc6s1K6>|
 |August|sampling an ice cream van chime of greensleeves, definitely think I'll keep working on this as I'm into the dark, melancholy energy it's giving|<https://youtu.be/JU_gk-bOJiY>|
 |September|a scrappy remixing of earlier stuff, mashing lots of things together|<https://youtu.be/VbE_-eqx7kM>|
-| --- | --- | --- |
-| --- | --- | --- |
-| --- | --- | --- |
+|October| prep for Peckham Digital performance|<https://youtu.be/YnYPT0sUUtg>|
+|November| prepping for Dec Algorave, remixing AI_C_U which I played a year ago at my first Algorave performance | <https://youtu.be/d2o9HTSxXIs> |
+| December | further developing icecreamvanjam in prep for the Eulerroom Solstice Stream |<https://youtu.be/Vu5QI_UrWgY>|
 
 **Leftover ideas from last year:**
 AI_I_CU / Computational Other - finish it properly ?
